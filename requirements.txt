@@ -1,0 +1,25 @@
+# 필수 의존성 (Core Dependencies)
+torch>=2.0.0                    # 딥러닝 프레임워크
+gymnasium>=0.29.0               # 강화학습 환경
+numpy>=1.24.0                   # 수치 계산
+matplotlib>=3.7.0               # 기본 시각화
+
+# 알고리즘 구현용 (Algorithm Implementation)
+scipy>=1.10.0                   # OU 노이즈 프로세스
+pandas>=2.0.0                   # 실험 결과 분석
+seaborn>=0.12.0                 # 고급 시각화
+tqdm>=4.65.0                    # 진행률 표시
+
+# 설정 관리 (Configuration)
+pyyaml>=6.0                     # YAML 설정 파일
+
+# 비디오 생성 (Video Generation)
+opencv-python>=4.7.0            # 비디오 처리 및 녹화
+
+# 선택적 의존성 (Optional)
+tensorboard>=2.13.0             # 학습 시각화 (선택)
+jupyter>=1.0.0                  # 대화형 노트북 (선택)
+ipython>=8.12.0                 # 향상된 REPL (선택)
+
+# 설치 명령어:
+# pip install -r requirements.txt

@@ -1,0 +1,105 @@
+# 비디오 녹화 설정
+
+video:
+  # 기본 녹화 설정
+  fps: 30
+  resolution: [640, 480]  # [width, height]
+  quality: "medium"  # low, medium, high
+  
+  # 저장 설정
+  save_base_path: "videos"
+  max_storage_gb: 10.0
+  auto_cleanup: true
+  
+  # 오버레이 설정
+  show_overlay: true
+  show_episode: true
+  show_reward: true
+  show_steps: true
+  
+  # 압축 설정
+  compress_after_recording: true
+  keep_raw_files: false
+
+# 이중 녹화 설정
+dual_recording:
+  enabled: true
+  
+  # 전체 녹화 (저품질)
+  full_recording:
+    fps: 15
+    resolution: [320, 240]
+    quality: "low"
+    max_episodes: 500  # 최대 저장할 에피소드 수
+  
+  # 선택적 녹화 (고품질)
+  selective_recording:
+    fps: 30
+    resolution: [640, 480]
+    quality: "high"
+    
+    # 녹화할 에피소드 스케줄
+    schedule:
+      initial_episodes: [1, 2, 3, 5, 10]  # 초기 실패들
+      interval_episodes: 50               # 주기적 녹화
+      final_episodes: 10                  # 마지막 N개 에피소드
+      
+    # 성능 기반 녹화
+    performance_triggers:
+      enabled: true
+      improvement_threshold: 0.1    # 성능 향상 임계값
+      record_on_best_score: true    # 최고 점수 달성 시 녹화
+      record_on_milestone: true     # 마일스톤 달성 시 녹화
+
+# 알고리즘별 특별 설정
+algorithms:
+  dqn:
+    environment: "CartPole-v1"
+    target_score: 475  # 성공 기준
+    milestones: [100, 200, 300, 400]  # 점수 마일스톤
+    
+  ddpg:
+    environment: "Pendulum-v1" 
+    target_score: -200  # 성공 기준 (높을수록 좋음)
+    milestones: [-1000, -500, -300, -200]  # 점수 마일스톤
+
+# 편집 설정 (향후 사용)
+editing:
+  auto_edit: true
+  create_timelapse: true
+  create_highlights: true
+  create_comparison: true
+  
+  # 타임랩스 설정
+  timelapse:
+    target_duration_minutes: 5
+    transition_effects: true
+    
+  # 하이라이트 설정
+  highlights:
+    target_duration_minutes: 3
+    include_failures: true
+    include_improvements: true
+    
+# 품질 프리셋
+presets:
+  demo:
+    fps: 30
+    resolution: [640, 480]
+    quality: "high"
+    show_overlay: true
+    max_storage_gb: 5.0
+    
+  research:
+    fps: 15
+    resolution: [320, 240] 
+    quality: "medium"
+    show_overlay: false
+    max_storage_gb: 20.0
+    
+  presentation:
+    fps: 30
+    resolution: [1280, 720]
+    quality: "high"
+    show_overlay: true
+    max_storage_gb: 15.0

@@ -1,0 +1,107 @@
+# 비디오 렌더링 파이프라인 설정
+
+pipeline:
+  # 기본 출력 설정
+  output_dir: "videos/pipeline"
+  temp_dir: "videos/temp"
+  
+  # 비디오 품질 설정
+  fps: 30
+  duration_seconds: 240  # 4분
+  resolution: [1280, 720]  # HD 720p
+  
+  # 시각화 옵션
+  show_metrics: true
+  show_progress: true
+  show_episode_info: true
+  
+  # 데이터 처리 설정
+  max_episodes_to_show: 1000
+  smooth_curves: true
+  
+  # 렌더링 품질
+  dpi: 100
+  bitrate: 5000  # kbps
+  
+# 비디오 스타일 설정
+style:
+  theme: "dark"  # dark, light
+  color_scheme:
+    dqn: "#00ff88"      # 녹색
+    ddpg: "#ff6b6b"     # 빨간색
+    background: "#1a1a1a"
+    text: "#ffffff"
+    grid: "#333333"
+  
+  fonts:
+    title_size: 20
+    label_size: 14
+    text_size: 12
+    
+# 애니메이션 설정
+animation:
+  # 학습 곡선 애니메이션
+  learning_curve:
+    enabled: true
+    smooth_transition: true
+    show_moving_average: true
+    moving_average_window: 50
+    
+  # 비교 차트
+  comparison:
+    enabled: true
+    duration_seconds: 10
+    transition_effects: true
+    
+  # 인트로/아웃트로
+  intro:
+    enabled: true
+    duration_seconds: 5
+    show_algorithm_info: true
+    
+  outro:
+    enabled: true
+    duration_seconds: 5
+    show_final_results: true
+
+# 내보내기 설정
+export:
+  # 개별 비디오 생성
+  create_individual_videos: true
+  
+  # 품질별 출력
+  qualities:
+    preview:
+      resolution: [640, 360]
+      fps: 15
+      duration_seconds: 60
+      
+    standard:
+      resolution: [1280, 720]
+      fps: 30
+      duration_seconds: 180
+      
+    high:
+      resolution: [1920, 1080]
+      fps: 30
+      duration_seconds: 300
+
+# 고급 설정
+advanced:
+  # 멀티프로세싱
+  use_multiprocessing: false
+  max_workers: 4
+  
+  # 메모리 관리
+  chunk_size: 100  # 한 번에 처리할 에피소드 수
+  
+  # 압축 설정
+  compression:
+    enabled: true
+    codec: "h264"
+    preset: "medium"  # ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow
+    
+  # 오류 처리
+  error_handling:
+    continue_on_error: true
+    fallback_to_images: true

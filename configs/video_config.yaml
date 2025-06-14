@@ -1,0 +1,91 @@
+# 통합 비디오 설정 파일
+# 모든 비디오 관련 기능에서 사용하는 설정들을 통합 관리
+
+# 빠른 데모 설정
+demo:
+  duration: 15              # 초
+  fps: 15                   # 프레임/초
+  resolution: [640, 480]    # [가로, 세로]
+  output_dir: "videos"
+  
+# 파이프라인 설정 (고품질)
+pipeline:
+  duration: 180             # 3분
+  fps: 30
+  resolution: [1280, 720]   # HD 720p
+  output_dir: "videos/pipeline"
+  bitrate: 5000            # kbps
+
+# 비교 영상 설정
+comparison:
+  layout: "side_by_side"    # side_by_side, overlay, split
+  gap: 20                   # 프레임 사이 간격
+  show_labels: true
+  output_dir: "videos/comparison"
+  
+  labels:
+    dqn: "DQN (CartPole)"
+    ddpg: "DDPG (Pendulum)"
+    
+# 색상 테마
+theme:
+  background: "#1a1a1a"
+  dqn_color: "#00ff88"      # 녹색
+  ddpg_color: "#ff6b6b"     # 빨간색  
+  text_color: "#ffffff"
+  grid_color: "#333333"
+
+# 샘플 데이터 설정
+sample_data:
+  dqn:
+    episodes: 200
+    env_name: "CartPole-v1"
+    target_reward: 450
+    
+  ddpg:
+    episodes: 200
+    env_name: "Pendulum-v1"
+    target_reward: -200
+
+# 품질 프리셋
+presets:
+  preview:                  # 빠른 미리보기용
+    duration: 10
+    fps: 10
+    resolution: [480, 360]
+    
+  standard:                 # 일반 사용
+    duration: 30
+    fps: 30
+    resolution: [640, 480]
+    
+  high_quality:            # 프레젠테이션용
+    duration: 60
+    fps: 30
+    resolution: [1920, 1080]
+    
+  social_media:            # 소셜 미디어용
+    duration: 15
+    fps: 30
+    resolution: [720, 1280]  # 세로 모드
+
+# 텍스트 오버레이 설정
+overlay:
+  font_scale: 1.0
+  thickness: 2
+  position: [10, 30]        # [x, y]
+  
+# 진행률 바 설정
+progress_bar:
+  enabled: true
+  size: [200, 10]          # [가로, 세로]
+  position: [10, null]     # null이면 자동 배치
+  colors:
+    background: [50, 50, 50]
+    foreground: [0, 255, 0]
+
+# 임시 파일 관리
+temp:
+  dir: "videos/temp"
+  auto_cleanup: true
+  max_age_hours: 24        # 24시간 후 자동 삭제
