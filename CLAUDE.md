@@ -22,17 +22,17 @@ pip install -r requirements.txt
 
 ### Quick Start (Recommended Order)
 ```bash
-# 1. Generate video demo (fastest way to see results)
-python quick_video_demo.py --duration 15
-
-# 2. Run basic algorithm demonstration
+# 1. Run basic algorithm demonstration
 python tests/simple_demo.py
 
-# 3. Generate comprehensive learning visualization
-python render_learning_video.py --sample-data --all
+# 2. Run same environment comparison (core innovation)
+python experiments/same_environment_comparison.py
 
-# 4. Run full experiment with training
-python run_experiment.py --save-models --results-dir results
+# 3. Generate comprehensive visualization
+python create_comprehensive_visualization.py
+
+# 4. Generate presentation materials
+python generate_presentation_materials.py
 ```
 
 ### Video Generation Commands
@@ -80,8 +80,26 @@ python simple_training.py
 # Full experiment with all analysis
 python run_experiment.py --save-models --results-dir results
 
-# Training with video recording
-python run_experiment.py --record-video --dual-video
+# Same environment comparison (core innovation)
+python experiments/same_environment_comparison.py
+
+# All experiments comprehensive
+python run_all_experiments.py
+
+# Deterministic policy analysis
+python experiments/analyze_deterministic_policy.py
+```
+
+### Documentation and Presentation
+```bash
+# Generate all presentation materials
+python generate_presentation_materials.py
+
+# Check presentation materials status
+python check_presentation_materials.py
+
+# Organize project reports
+python organize_reports.py
 ```
 
 ## Architecture Overview
@@ -91,6 +109,7 @@ python run_experiment.py --record-video --dual-video
 **Agents** (`src/agents/`):
 - `dqn_agent.py`: Implements DQN with implicit deterministic policy (argmax over Q-values)
 - `ddpg_agent.py`: Implements DDPG with explicit deterministic policy (direct actor output)
+- `discretized_dqn_agent.py`: **Core Innovation** - DQN agent adapted for continuous action spaces via discretization
 
 **Networks** (`src/networks/`):
 - `q_network.py`: Deep Q-Network for DQN
@@ -119,6 +138,7 @@ python run_experiment.py --record-video --dual-video
 **Environment Integration** (`src/environments/`):
 - `video_wrappers.py`: Environment wrappers that integrate video recording
 - `wrappers.py`: Standard environment wrappers for CartPole-v1 (DQN) and Pendulum-v1 (DDPG)
+- `continuous_cartpole.py`: **Core Innovation** - Continuous action version of CartPole for fair algorithm comparison
 
 ### Key Design Patterns
 
@@ -126,19 +146,21 @@ python run_experiment.py --record-video --dual-video
    - DQN: Implicit deterministic policy via `q_values.argmax()`
    - DDPG: Explicit deterministic policy via `actor_network(state)`
 
-2. **Action Space Handling**:
-   - DQN: Discrete actions (0, 1 for CartPole)
-   - DDPG: Continuous actions ([-2, 2] for Pendulum)
+2. **Fair Comparison Innovation** (Project's Main Contribution):
+   - **Problem**: Traditional comparison uses different environments (CartPole vs Pendulum)
+   - **Solution**: ContinuousCartPole environment + DiscretizedDQN agent
+   - **Result**: Same environment comparison revealing DQN 13.2x performance advantage
 
-3. **Exploration Strategies**:
-   - DQN: ε-greedy exploration
-   - DDPG: Gaussian noise added to deterministic policy
+3. **Action Space Handling**:
+   - Standard DQN: Discrete actions (0, 1 for CartPole)
+   - DDPG: Continuous actions ([-2, 2] for Pendulum)
+   - **DiscretizedDQN**: Continuous actions discretized into bins for DQN compatibility
 
 4. **Video System Design**:
    - **Dual Recording**: Simultaneous low-quality full recording + high-quality selective recording
    - **Pipeline Architecture**: Separate rendering pipeline for post-training visualization
-   - **Fallback System**: OpenCV backend when FFmpeg unavailable
-   - **Sample Data Integration**: Ability to generate demos without actual training
+   - **FFmpeg-Independent**: OpenCV fallback for broader compatibility
+   - **Sample Data Integration**: Generate demos without actual training
 
 ## Configuration System
 
@@ -194,9 +216,21 @@ videos/
 └── temp/                   # Temporary processing files
 ```
 
-## Language and Documentation
+## Documentation Structure
 
-This project uses **Korean language** for documentation and comments. Key documentation files are in the `docs/` directory with comprehensive theoretical explanations and usage guides.
+The project maintains comprehensive documentation in the `docs/` directory with Korean language content:
+
+### Core Documentation
+- `docs/README.md`: Main documentation index with project overview and usage guides
+- `docs/final_reports/`: Presentation-ready comprehensive project reports
+- `docs/experiment_reports/`: Detailed experimental results and analysis
+- `docs/analysis_reports/`: Theoretical analysis and algorithm comparisons
+- `docs/documentation/`: System guides and development logs
+
+### Key Reports
+- **`FINAL_REPORT.md`**: Complete project summary suitable for presentations
+- **`DQN_vs_DDPG_동일환경_비교분석.md`**: Core finding - DQN 13.2x performance advantage
+- **`VISUAL_MATERIALS_REPORT.md`**: Verification that all presentation materials can be code-generated
 
 ## Environment Specifications
 
@@ -209,6 +243,12 @@ This project uses **Korean language** for documentation and comments. Key docume
 - **Action Space**: Continuous (torque in [-2, 2])
 - **Observation Space**: Continuous (cos(θ), sin(θ), angular velocity)
 - **Success Criteria**: Average reward ≥ -200 (higher is better)
+
+### ContinuousCartPole (Innovation for Fair Comparison)
+- **Action Space**: Continuous (force in [-1, 1] mapped to [-10, 10])
+- **Observation Space**: Same as CartPole-v1 (cart position, velocity, pole angle, angular velocity)
+- **Physics**: Identical to CartPole-v1 but accepts continuous force values
+- **Purpose**: Enable DQN vs DDPG comparison in identical environment
 
 ## Key Implementation Details
 
@@ -231,9 +271,10 @@ This project uses **Korean language** for documentation and comments. Key docume
 - Video quality presets available in `configs/video_config.yaml`
 
 ### Adding New Features
-- **New Environments**: Create wrappers in `src/environments/` following existing pattern
+- **New Environments**: Create wrappers in `src/environments/` following ContinuousCartPole pattern
 - **Video Features**: Extend `VideoRenderingPipeline` class in `src/core/video_pipeline.py`
 - **Analysis Tools**: Add functions to `experiments/visualizations.py`
+- **New Algorithms**: Follow DiscretizedDQN pattern for adapting algorithms to different action spaces
 
 ### Debugging and Testing
 - Use `tests/simple_demo.py` for quick algorithm behavior verification
@@ -243,4 +284,16 @@ This project uses **Korean language** for documentation and comments. Key docume
 ### File Organization
 - Large generated files (videos, models, results) are gitignored
 - Only source code, configs, and small JSON results are tracked
-- Korean documentation in `docs/` provides comprehensive guides
+- Korean documentation in `docs/` provides comprehensive guides organized by category
+- Presentation materials can be auto-generated with `generate_presentation_materials.py`
+
+## Core Innovation Summary
+
+This project's main contribution is enabling **fair algorithm comparison** through:
+
+1. **ContinuousCartPole Environment**: CartPole physics with continuous action space
+2. **DiscretizedDQN Agent**: DQN adapted for continuous actions via discretization
+3. **Same Environment Comparison**: Both algorithms tested in identical conditions
+4. **Key Finding**: DQN outperforms DDPG by 13.2x in continuous environment, contradicting conventional wisdom
+
+The methodology eliminates environment bias and provides pure algorithmic performance comparison, revealing that environment compatibility matters more than theoretical algorithm design for specific action spaces.

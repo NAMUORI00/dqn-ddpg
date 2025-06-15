@@ -170,8 +170,9 @@ action = actor_network(state)  # 결정적이고 직접적
 - `experiments/visualizations.py`: 결과 시각화 도구
 
 ### 문서
-- `docs/VIDEO_PIPELINE_README.md`: 📖 영문 비디오 파이프라인 가이드
-- `docs/비디오_렌더링_파이프라인_가이드.md`: 📖 한글 비디오 파이프라인 가이드
+- `docs/비디오_시스템_완전_가이드.md`: 📖 한글 비디오 시스템 완전 가이드
+- `docs/사용자_완전_가이드.md`: 📖 한글 사용자 완전 가이드
+- `docs/종합_시각화_시스템_가이드.md`: 📖 한글 종합 시각화 시스템 가이드
 
 ## 설정 파일
 

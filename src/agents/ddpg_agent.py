@@ -104,6 +104,12 @@ class DDPGAgent:
         with torch.no_grad():
             action = self.actor(state_tensor).cpu().numpy().squeeze()
         
+        # 1차원 배열로 만들기 (환경 호환성)
+        if np.isscalar(action):
+            action = np.array([action], dtype=np.float32)
+        elif action.ndim == 0:
+            action = np.array([action.item()], dtype=np.float32)
+        
         # 탐험을 위한 노이즈 추가
         if add_noise:
             noise = self.noise.sample()
@@ -111,7 +117,8 @@ class DDPGAgent:
             # 행동 범위 제한
             action = np.clip(action, -self.action_bound, self.action_bound)
         
-        return action
+        # dtype 확보 (환경 호환성)
+        return action.astype(np.float32)
     
     def store_transition(self, state: np.ndarray, action: np.ndarray, reward: float,
                         next_state: np.ndarray, done: bool) -> None:
