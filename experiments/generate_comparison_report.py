@@ -531,7 +531,7 @@ class ComparisonReportGenerator:
     def _create_summary_comparison_chart(self, results: Dict, save_dir: str):
         """종합 비교 요약 차트 생성"""
         fig, axes = plt.subplots(2, 2, figsize=(15, 12))
-        fig.suptitle('DQN vs DDPG 종합 비교 분석', fontsize=16, fontweight='bold')
+        fig.suptitle('DQN vs DDPG Comprehensive Comparison Analysis', fontsize=16, fontweight='bold')
         
         # 1. 성능 비교
         ax = axes[0, 0]
@@ -550,7 +550,7 @@ class ComparisonReportGenerator:
                 
                 bars = ax.bar(algorithms, performances, color=['blue', 'red'], alpha=0.7)
                 ax.set_ylabel('Final Average Reward')
-                ax.set_title('최종 성능 비교')
+                ax.set_title('Final Performance Comparison')
                 ax.grid(True, alpha=0.3)
                 
                 # 값 표시
@@ -571,7 +571,7 @@ class ComparisonReportGenerator:
                 
                 bars = ax.bar(algorithms, scores, color=['blue', 'red'], alpha=0.7)
                 ax.set_ylabel('Determinism Score')
-                ax.set_title('결정적 정책 일관성')
+                ax.set_title('Deterministic Policy Consistency')
                 ax.set_ylim(0, 1)
                 ax.grid(True, alpha=0.3)
                 
@@ -594,7 +594,7 @@ class ComparisonReportGenerator:
         bars2 = ax.bar(x + width/2, ddpg_scores, width, label='DDPG', color='red', alpha=0.7)
         
         ax.set_ylabel('Score')
-        ax.set_title('알고리즘 특성 비교')
+        ax.set_title('Algorithm Characteristics Comparison')
         ax.set_xticks(x)
         ax.set_xticklabels(categories)
         ax.legend()
@@ -603,28 +603,28 @@ class ComparisonReportGenerator:
         
         # 4. 적용 영역
         ax = axes[1, 1]
-        ax.text(0.5, 0.8, 'DQN 적용 영역', ha='center', va='center', 
+        ax.text(0.5, 0.8, 'DQN Application Areas', ha='center', va='center', 
                 transform=ax.transAxes, fontsize=14, fontweight='bold', color='blue')
-        ax.text(0.5, 0.7, '• 이산 행동 공간', ha='center', va='center', 
+        ax.text(0.5, 0.7, '• Discrete Action Space', ha='center', va='center', 
                 transform=ax.transAxes, fontsize=10)
-        ax.text(0.5, 0.65, '• 게임 AI', ha='center', va='center', 
+        ax.text(0.5, 0.65, '• Game AI', ha='center', va='center', 
                 transform=ax.transAxes, fontsize=10)
-        ax.text(0.5, 0.6, '• 분류 기반 제어', ha='center', va='center', 
+        ax.text(0.5, 0.6, '• Classification-based Control', ha='center', va='center', 
                 transform=ax.transAxes, fontsize=10)
         
-        ax.text(0.5, 0.4, 'DDPG 적용 영역', ha='center', va='center', 
+        ax.text(0.5, 0.4, 'DDPG Application Areas', ha='center', va='center', 
                 transform=ax.transAxes, fontsize=14, fontweight='bold', color='red')
-        ax.text(0.5, 0.3, '• 연속 행동 공간', ha='center', va='center', 
+        ax.text(0.5, 0.3, '• Continuous Action Space', ha='center', va='center', 
                 transform=ax.transAxes, fontsize=10)
-        ax.text(0.5, 0.25, '• 로봇 제어', ha='center', va='center', 
+        ax.text(0.5, 0.25, '• Robot Control', ha='center', va='center', 
                 transform=ax.transAxes, fontsize=10)
-        ax.text(0.5, 0.2, '• 정밀 제어 시스템', ha='center', va='center', 
+        ax.text(0.5, 0.2, '• Precision Control Systems', ha='center', va='center', 
                 transform=ax.transAxes, fontsize=10)
         
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1)
         ax.axis('off')
-        ax.set_title('주요 적용 영역')
+        ax.set_title('Major Application Areas')
         
         plt.tight_layout()
         plt.savefig(os.path.join(save_dir, "comprehensive_comparison.png"), 

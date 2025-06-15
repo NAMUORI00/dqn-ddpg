@@ -11,7 +11,7 @@ import os
 def plot_learning_curves(dqn_metrics: Dict, ddpg_metrics: Dict, save_path: str = None):
     """학습 곡선 플로팅"""
     fig, axes = plt.subplots(2, 2, figsize=(15, 10))
-    fig.suptitle('DQN vs DDPG 학습 성능 비교', fontsize=16)
+    fig.suptitle('DQN vs DDPG Learning Performance Comparison', fontsize=16)
     
     # 1. 에피소드 보상
     ax = axes[0, 0]
@@ -41,7 +41,7 @@ def plot_learning_curves(dqn_metrics: Dict, ddpg_metrics: Dict, save_path: str =
     
     ax.set_xlabel('Episode')
     ax.set_ylabel('Reward')
-    ax.set_title('에피소드 보상')
+    ax.set_title('Episode Rewards')
     ax.legend()
     ax.grid(True, alpha=0.3)
     
@@ -54,7 +54,7 @@ def plot_learning_curves(dqn_metrics: Dict, ddpg_metrics: Dict, save_path: str =
     
     ax.set_xlabel('Episode')
     ax.set_ylabel('Episode Length')
-    ax.set_title('에피소드 길이')
+    ax.set_title('Episode Length')
     ax.legend()
     ax.grid(True, alpha=0.3)
     
@@ -67,7 +67,7 @@ def plot_learning_curves(dqn_metrics: Dict, ddpg_metrics: Dict, save_path: str =
     
     ax.set_xlabel('Training Step')
     ax.set_ylabel('Loss')
-    ax.set_title('학습 손실')
+    ax.set_title('Training Loss')
     ax.legend()
     ax.grid(True, alpha=0.3)
     ax.set_yscale('log')
@@ -75,13 +75,13 @@ def plot_learning_curves(dqn_metrics: Dict, ddpg_metrics: Dict, save_path: str =
     # 4. Q-값 변화
     ax = axes[1, 1]
     if 'q_values' in dqn_metrics and dqn_metrics['q_values']:
-        ax.plot(dqn_metrics['q_values'], label='DQN Q-값', alpha=0.7, color='blue')
+        ax.plot(dqn_metrics['q_values'], label='DQN Q-values', alpha=0.7, color='blue')
     if 'q_values' in ddpg_metrics and ddpg_metrics['q_values']:
-        ax.plot(ddpg_metrics['q_values'], label='DDPG Q-값', alpha=0.7, color='red')
+        ax.plot(ddpg_metrics['q_values'], label='DDPG Q-values', alpha=0.7, color='red')
     
     ax.set_xlabel('Training Step')
     ax.set_ylabel('Average Q-value')
-    ax.set_title('Q-값 변화')
+    ax.set_title('Q-Value Changes')
     ax.legend()
     ax.grid(True, alpha=0.3)
     
