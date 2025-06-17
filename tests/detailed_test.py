@@ -18,6 +18,10 @@ from src.agents import DQNAgent, DDPGAgent
 from src.environments.wrappers import create_dqn_env, create_ddpg_env
 from src.core.utils import set_seed
 
+# Set matplotlib font to properly display text
+plt.rcParams['font.family'] = ['DejaVu Sans', 'Arial', 'sans-serif']
+plt.rcParams['axes.unicode_minus'] = False
+
 
 class DeterministicPolicyTester:
     """결정적 정책 테스터"""
@@ -153,33 +157,33 @@ class DeterministicPolicyTester:
 
 
 def visualize_results(tester: DeterministicPolicyTester):
-    """테스트 결과 시각화"""
+    """Visualize test results"""
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
-    fig.suptitle('DQN vs DDPG 결정적 정책 분석', fontsize=16)
+    fig.suptitle('DQN vs DDPG Deterministic Policy Analysis', fontsize=16)
     
-    # 1. DQN Q-값 분포
+    # 1. DQN Q-value distribution
     ax = axes[0, 0]
     if 'q_analysis' in tester.results['dqn']:
         q_values = tester.results['dqn']['q_analysis']['q_values']
-        for i, q_vals in enumerate(q_values[:5]):  # 처음 5개 상태
+        for i, q_vals in enumerate(q_values[:5]):  # First 5 states
             ax.bar(range(len(q_vals)), q_vals, alpha=0.6, label=f'State {i+1}')
         ax.set_xlabel('Action')
         ax.set_ylabel('Q-value')
-        ax.set_title('DQN: Q-값 분포')
+        ax.set_title('DQN: Q-value Distribution')
         ax.legend()
     
-    # 2. DDPG 액터 출력
+    # 2. DDPG actor output
     ax = axes[0, 1]
     if 'actor_analysis' in tester.results['ddpg']:
         outputs = tester.results['ddpg']['actor_analysis']['actor_outputs']
-        for i, action in enumerate(outputs[:5]):  # 처음 5개 상태
+        for i, action in enumerate(outputs[:5]):  # First 5 states
             ax.plot(action, 'o-', label=f'State {i+1}')
         ax.set_xlabel('Action Dimension')
         ax.set_ylabel('Action Value')
-        ax.set_title('DDPG: 액터 출력')
+        ax.set_title('DDPG: Actor Output')
         ax.legend()
     
-    # 3. 탐험 영향 (DQN)
+    # 3. Exploration impact (DQN)
     ax = axes[1, 0]
     if 'exploration_dqn' in tester.results['dqn']:
         exp_data = tester.results['dqn']['exploration_dqn']
@@ -192,10 +196,10 @@ def visualize_results(tester: DeterministicPolicyTester):
         ax.bar(x + width/2, exp_counts, width, label='With Exploration')
         ax.set_xlabel('Action')
         ax.set_ylabel('Count')
-        ax.set_title('DQN: 탐험의 영향')
+        ax.set_title('DQN: Exploration Impact')
         ax.legend()
     
-    # 4. 탐험 영향 (DDPG)
+    # 4. Exploration impact (DDPG)
     ax = axes[1, 1]
     if 'exploration_ddpg' in tester.results['ddpg']:
         exp_data = tester.results['ddpg']['exploration_ddpg']
@@ -203,7 +207,7 @@ def visualize_results(tester: DeterministicPolicyTester):
         ax.hist(differences, bins=20, alpha=0.7, edgecolor='black')
         ax.set_xlabel('Action Difference (L2 norm)')
         ax.set_ylabel('Frequency')
-        ax.set_title('DDPG: 노이즈로 인한 행동 변화')
+        ax.set_title('DDPG: Action Change due to Noise')
     
     plt.tight_layout()
     

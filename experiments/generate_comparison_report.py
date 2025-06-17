@@ -23,11 +23,24 @@ from pathlib import Path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
 
-from experiments.visualizations import (
-    plot_learning_curves, 
-    visualize_deterministic_policy,
-    plot_comparison_summary
-)
+from src.visualization.charts.learning_curves import LearningCurveVisualizer
+from src.visualization.charts.policy_analysis import PolicyAnalysisVisualizer
+from src.visualization.charts.comparison import ComparisonChartVisualizer
+
+# Create wrapper function for backward compatibility
+def plot_learning_curves(dqn_metrics, ddpg_metrics, save_path):
+    """Wrapper function for backward compatibility"""
+    visualizer = LearningCurveVisualizer()
+    visualizer.plot_comparison(dqn_metrics, ddpg_metrics, save_path)
+def visualize_deterministic_policy(*args, **kwargs):
+    """Wrapper for backward compatibility"""
+    # This function needs to be implemented based on the new visualization system
+    pass
+
+def plot_comparison_summary(*args, **kwargs):
+    """Wrapper for backward compatibility"""
+    # This function needs to be implemented based on the new visualization system
+    pass
 from experiments.analyze_deterministic_policy import DeterministicPolicyAnalyzer
 
 

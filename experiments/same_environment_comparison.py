@@ -23,6 +23,17 @@ from typing import Dict, List, Tuple, Any
 import warnings
 warnings.filterwarnings('ignore')
 
+# 새로운 시각화 모듈 import
+try:
+    from src.visualization.charts.learning_curves import LearningCurveVisualizer
+    from src.visualization.charts.comparison import ComparisonChartVisualizer
+    from src.visualization.charts.policy_analysis import PolicyAnalysisVisualizer
+    from src.visualization.core.config import VisualizationConfig
+    NEW_VISUALIZATION_AVAILABLE = True
+except ImportError:
+    print("Warning: 새로운 시각화 모듈을 가져올 수 없습니다. 기본 시각화 사용.")
+    NEW_VISUALIZATION_AVAILABLE = False
+
 # 프로젝트 루트 추가
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -380,59 +391,85 @@ class SameEnvironmentComparison:
         return comparison_results
     
     def visualize_results(self, results: Dict[str, Any]):
-        """결과 시각화"""
-        fig, axes = plt.subplots(2, 2, figsize=(15, 10))
-        fig.suptitle('동일 환경 DQN vs DDPG 비교 결과', fontsize=16)
-        
-        # 학습 곡선
-        axes[0, 0].plot(results['training_results']['dqn']['scores'], 
-                       label='DQN', alpha=0.7, color='blue')
-        axes[0, 0].plot(results['training_results']['ddpg']['scores'], 
-                       label='DDPG', alpha=0.7, color='red')
-        axes[0, 0].set_title('학습 성능 비교')
-        axes[0, 0].set_xlabel('에피소드')
-        axes[0, 0].set_ylabel('점수')
-        axes[0, 0].legend()
-        axes[0, 0].grid(True)
-        
-        # 평가 점수
-        dqn_eval_episodes = [m['episode'] for m in results['training_results']['dqn']['metrics']]
-        dqn_eval_scores = [m['eval_score'] for m in results['training_results']['dqn']['metrics']]
-        ddpg_eval_episodes = [m['episode'] for m in results['training_results']['ddpg']['metrics']]
-        ddpg_eval_scores = [m['eval_score'] for m in results['training_results']['ddpg']['metrics']]
-        
-        axes[0, 1].plot(dqn_eval_episodes, dqn_eval_scores, 
-                       'o-', label='DQN', color='blue')
-        axes[0, 1].plot(ddpg_eval_episodes, ddpg_eval_scores, 
-                       'o-', label='DDPG', color='red')
-        axes[0, 1].set_title('평가 성능 비교')
-        axes[0, 1].set_xlabel('에피소드')
-        axes[0, 1].set_ylabel('평가 점수')
-        axes[0, 1].legend()
-        axes[0, 1].grid(True)
-        
-        # 행동 비교
-        comp = results['determinism_analysis']['action_comparison']
-        axes[1, 0].scatter(comp['dqn_actions'], comp['ddpg_actions'], alpha=0.6)
-        axes[1, 0].plot([-1, 1], [-1, 1], 'r--', alpha=0.5)
-        axes[1, 0].set_title('행동 선택 비교')
-        axes[1, 0].set_xlabel('DQN 행동')
-        axes[1, 0].set_ylabel('DDPG 행동')
-        axes[1, 0].grid(True)
-        
-        # 결정성 비교
-        dqn_det = results['determinism_analysis']['dqn_determinism']['determinism_score']
-        ddpg_det = results['determinism_analysis']['ddpg_determinism']['determinism_score']
-        
-        axes[1, 1].bar(['DQN', 'DDPG'], [dqn_det, ddpg_det], 
-                      color=['blue', 'red'], alpha=0.7)
-        axes[1, 1].set_title('결정성 점수 비교')
-        axes[1, 1].set_ylabel('결정성 점수')
-        axes[1, 1].set_ylim(0, 1.1)
-        axes[1, 1].grid(True)
-        
-        plt.tight_layout()
-        return fig
+        """결과 시각화 (새로운 시각화 시스템 사용)"""
+        if NEW_VISUALIZATION_AVAILABLE:
+            # 새로운 시각화 시스템 사용
+            viz_config = VisualizationConfig()
+            
+            # 학습 곡선 시각화
+            with LearningCurveVisualizer(output_dir=".", config=viz_config) as viz:
+                fig = viz.plot_comprehensive_learning_curves(
+                    results['training_results']['dqn'], 
+                    results['training_results']['ddpg'],
+                    save_filename="same_env_learning_curves.png"
+                )
+            
+            # 비교 차트 시각화
+            with ComparisonChartVisualizer(output_dir=".", config=viz_config) as viz:
+                comparison_data = {
+                    'dqn': results['training_results']['dqn'],
+                    'ddpg': results['training_results']['ddpg']
+                }
+                fig = viz.plot_performance_comparison(
+                    comparison_data['dqn'], comparison_data['ddpg'],
+                    save_filename="same_env_performance_comparison.png"
+                )
+            
+            return fig
+        else:
+            # 기본 시각화 (기존 코드)
+            fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+            fig.suptitle('동일 환경 DQN vs DDPG 비교 결과', fontsize=16)
+            
+            # 학습 곡선
+            axes[0, 0].plot(results['training_results']['dqn']['scores'], 
+                           label='DQN', alpha=0.7, color='blue')
+            axes[0, 0].plot(results['training_results']['ddpg']['scores'], 
+                           label='DDPG', alpha=0.7, color='red')
+            axes[0, 0].set_title('학습 성능 비교')
+            axes[0, 0].set_xlabel('에피소드')
+            axes[0, 0].set_ylabel('점수')
+            axes[0, 0].legend()
+            axes[0, 0].grid(True)
+            
+            # 평가 점수
+            dqn_eval_episodes = [m['episode'] for m in results['training_results']['dqn']['metrics']]
+            dqn_eval_scores = [m['eval_score'] for m in results['training_results']['dqn']['metrics']]
+            ddpg_eval_episodes = [m['episode'] for m in results['training_results']['ddpg']['metrics']]
+            ddpg_eval_scores = [m['eval_score'] for m in results['training_results']['ddpg']['metrics']]
+            
+            axes[0, 1].plot(dqn_eval_episodes, dqn_eval_scores, 
+                           'o-', label='DQN', color='blue')
+            axes[0, 1].plot(ddpg_eval_episodes, ddpg_eval_scores, 
+                           'o-', label='DDPG', color='red')
+            axes[0, 1].set_title('평가 성능 비교')
+            axes[0, 1].set_xlabel('에피소드')
+            axes[0, 1].set_ylabel('평가 점수')
+            axes[0, 1].legend()
+            axes[0, 1].grid(True)
+            
+            # 행동 비교
+            comp = results['determinism_analysis']['action_comparison']
+            axes[1, 0].scatter(comp['dqn_actions'], comp['ddpg_actions'], alpha=0.6)
+            axes[1, 0].plot([-1, 1], [-1, 1], 'r--', alpha=0.5)
+            axes[1, 0].set_title('행동 선택 비교')
+            axes[1, 0].set_xlabel('DQN 행동')
+            axes[1, 0].set_ylabel('DDPG 행동')
+            axes[1, 0].grid(True)
+            
+            # 결정성 비교
+            dqn_det = results['determinism_analysis']['dqn_determinism']['determinism_score']
+            ddpg_det = results['determinism_analysis']['ddpg_determinism']['determinism_score']
+            
+            axes[1, 1].bar(['DQN', 'DDPG'], [dqn_det, ddpg_det], 
+                          color=['blue', 'red'], alpha=0.7)
+            axes[1, 1].set_title('결정성 점수 비교')
+            axes[1, 1].set_ylabel('결정성 점수')
+            axes[1, 1].set_ylim(0, 1.1)
+            axes[1, 1].grid(True)
+            
+            plt.tight_layout()
+            return fig
     
     def save_results(self, results: Dict[str, Any], save_dir: str = 'results/same_environment_comparison'):
         """결과 저장"""

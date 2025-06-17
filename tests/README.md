@@ -15,10 +15,8 @@
 
 | 파일명 | 설명 | 기능 |
 |--------|------|------|
-| `video_test.py` | 기본 비디오 녹화 테스트 | 단일 환경 녹화 |
 | `test_video_recording.py` | 고급 비디오 녹화 테스트 | 이중 품질 녹화 |
 | `simple_dual_test.py` | 이중 녹화 시스템 테스트 | 간단한 이중 녹화 |
-| `patch_video_test.py` | 비디오 패치 테스트 | 녹화 시스템 수정 |
 
 ## 🚀 실행 방법
 
@@ -40,9 +38,6 @@ python tests/detailed_test.py
 
 ### 비디오 테스트 실행
 ```bash
-# 기본 비디오 테스트
-python tests/video_test.py
-
 # 고급 비디오 녹화 테스트
 python tests/test_video_recording.py
 
@@ -109,18 +104,29 @@ python tests/test_video_recording.py
 - 실제 환경에서의 에이전트 행동 관찰
 - 비디오 분석을 통한 정책 특성 확인
 
+### 추가 테스트
+```bash
+# 동일환경 비교 테스트
+python tests/test_same_environment.py
+
+# 빠른 비교 데모
+python tests/quick_comparison_demo.py
+```
+
 ## 📈 성능 벤치마크
 
 | 테스트 | 평균 실행 시간 | 메모리 사용량 | 디스크 사용량 |
 |--------|----------------|---------------|---------------|
 | simple_demo | 30초 | ~200MB | 무시 가능 |
 | detailed_test | 2분 | ~300MB | ~2MB (이미지) |
-| video_test | 1분 | ~500MB | ~10MB (비디오) |
+| test_video_recording | 1분 | ~500MB | ~10MB (비디오) |
+| test_same_environment | 3분 | ~400MB | ~5MB (결과) |
+| quick_comparison_demo | 1분 | ~250MB | ~1MB (차트) |
 
 ## 🔍 추가 정보
 
 - **설정 파일**: `configs/` 폴더의 YAML 파일들로 모든 파라미터 조정 가능
-- **결과 저장**: `results/` 폴더에 자동 저장
+- **결과 저장**: `output/` 및 `results/` 폴더에 자동 저장
 - **로그**: 콘솔 출력으로 실행 과정 모니터링 가능
 
 ## 🚨 주의사항
@@ -128,4 +134,4 @@ python tests/test_video_recording.py
 1. **환경 의존성**: WSL2 Linux 환경에서 테스트됨
 2. **GPU 사용**: CUDA 사용 가능시 자동으로 GPU 활용
 3. **디스크 공간**: 비디오 테스트 시 충분한 디스크 공간 확보 필요
-4. **실행 순서**: simple_demo.py → detailed_test.py → video_test.py 순서 권장
+4. **실행 순서**: simple_demo.py → detailed_test.py → test_video_recording.py 순서 권장

@@ -7,18 +7,67 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.pyo
+*.pyd
+.Python
 
-# 가상환경
+# ========================================
+# 가상환경 (포괄적 패턴)
+# ========================================
+
+# Python 가상환경
 .env
 .venv
 env/
 venv/
 ENV/
+VENV/
 env.bak/
 venv.bak/
-ddpg_dqn_env/
+
+# Conda 환경
 .conda/
+conda-meta/
+pkgs/
+envs/
+miniconda*/
+anaconda*/
+mambaforge*/
+miniforge*/
+
+# pyenv
+.python-version
+.pyenv/
+
+# pipenv
+Pipfile.lock
+.pipenv/
+
+# Poetry
+poetry.lock
+.poetry/
+
+# virtualenv
+pyvenv.cfg
+pip-selfcheck.json
+
+# virtualfish
+.vf/
+
+# 프로젝트별 환경
+ddpg_dqn_env/
+dqn_ddpg_env/
+test_env/
+*_env/
+*_venv/
+
+# 환경 설정 스크립트
+activate
+activate.bat
+activate.ps1
+deactivate
 miniconda.sh
+anaconda.sh
 
 # IDE 설정
 .vscode/
@@ -34,6 +83,49 @@ $RECYCLE.BIN/
 *~
 
 # ========================================
+# 출력 디렉토리 전체 제외
+# ========================================
+
+# 모든 시각화 출력물
+output/
+
+# 새로운 output 구조
+output/charts/
+output/videos/
+output/logs/
+output/tables/
+output/reports/
+
+# 기존 출력 디렉토리들 (호환성 유지)
+results/
+videos/
+presentation_materials/
+
+# 테스트 관련 임시 파일들
+test_results/
+*.tmp
+*.log
+
+# 단, 중요한 JSON 결과는 유지
+!output/logs/experiments/*.json
+
+# 임시 및 처리 중 파일들
+temp/
+tmp/
+cache/
+.cache/
+processing/
+debug/
+
+# 백업 파일들
+backup/
+backup_*/
+*.bak
+*.backup
+*_backup/
+*_backup_*/
+
+# ========================================
 # 프로젝트 특화 설정
 # ========================================
 
@@ -46,60 +138,48 @@ saved_models/
 *.pkl
 *.pickle
 
-# 2. 실험 결과 (재생성 가능한 파일들)
-results/
-experiments/outputs/
+# 2. 로그 및 실험 추적
 logs/
 runs/
 tensorboard_logs/
 wandb/
+mlruns/
 
-# 3. 생성된 비디오 파일들 (용량이 매우 큰 파일들)
-videos/
+# 3. 생성된 미디어 파일들 (재생성 가능한 파일들)
 *.mp4
 *.avi
 *.mov
 *.mkv
-
-# 4. 생성된 이미지 및 플롯 (재생성 가능한 파일들)
+*.gif
 *.png
 *.jpg
 *.jpeg
 *.pdf
 *.eps
 *.svg
-plots/
-figures/
 
-# 5. 임시 파일 및 캐시
-temp/
-tmp/
-.cache/
-cache/
-*.tmp
-*.temp
+# 4. 데이터 파일들
+*.csv
+*.xlsx
+*.h5
+*.hdf5
+data/raw/
+data/processed/
 
-# 6. 백업 파일
-*.bak
-*.backup
-backup/
-*.yaml.bak
-*.yml.bak
-config_backup/
-
-# 7. 개발 중 테스트 파일들
+# 5. 개발 중 테스트 파일들
 test_output/
-debug/
 debug_output/
 scratch/
 playground/
+experimental/
 
-# 8. 개인 노트 및 임시 파일
+# 6. 개인 노트 및 임시 파일
 notes/
 personal/
 *.md.bak
+*.txt.bak
 
-# 9. 프로파일링 및 성능 분석
+# 7. 프로파일링 및 성능 분석
 *.prof
 *.pstats
 *.nvprof
@@ -107,9 +187,6 @@ personal/
 profile_results/
 benchmark_results/
 timing_results/
-
-# 10. 아카이브 폴더 (구버전 파일들)
-archive/
 
 # ========================================
 # 유지해야 할 파일들 (예외 처리)
