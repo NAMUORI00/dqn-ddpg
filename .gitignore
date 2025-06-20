@@ -87,19 +87,19 @@ $RECYCLE.BIN/
 # ========================================
 
 # 모든 시각화 출력물
-output/
+dqn_ddpg/output/
 
 # 새로운 output 구조
-output/charts/
-output/videos/
-output/logs/
-output/tables/
-output/reports/
+dqn_ddpg/output/charts/
+dqn_ddpg/output/videos/
+dqn_ddpg/output/logs/
+dqn_ddpg/output/tables/
+dqn_ddpg/output/reports/
 
 # 기존 출력 디렉토리들 (호환성 유지)
-results/
-videos/
-presentation_materials/
+dqn_ddpg/results/
+dqn_ddpg/videos/
+dqn_ddpg/presentation_materials/
 
 # 테스트 관련 임시 파일들
 test_results/
@@ -107,7 +107,7 @@ test_results/
 *.log
 
 # 단, 중요한 JSON 결과는 유지
-!output/logs/experiments/*.json
+!dqn_ddpg/output/logs/experiments/*.json
 
 # 임시 및 처리 중 파일들
 temp/
@@ -213,7 +213,7 @@ timing_results/
 !requirements.txt
 
 # 샘플 결과 파일 몇 개는 유지 (작은 파일들만)
-!results/*.json
+!dqn_ddpg/results/*.json
 
 # ========================================
 # 특별 처리
@@ -222,10 +222,19 @@ timing_results/
 # Claude Code 관련
 .claude/
 
+# DevContainer 관련
+.devcontainer/.conda/          # 로컬 conda 환경 (재생성 가능)
+.devcontainer/Dockerfile.bak   # 백업 파일
+.devcontainer/*.log            # 빌드 로그
+
+# Docker 관련 임시 파일
+.docker/
+docker-compose.override.yml
+
 # 하지만 너무 큰 비디오 파일들은 제외
-videos/**/*.mp4
-videos/**/*.avi
-videos/**/frame_*.png
+dqn_ddpg/videos/**/*.mp4
+dqn_ddpg/videos/**/*.avi
+dqn_ddpg/videos/**/frame_*.png
 
 # 임시 프레임 파일들
 frame_*.png
