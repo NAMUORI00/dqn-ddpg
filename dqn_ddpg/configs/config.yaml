@@ -1,0 +1,155 @@
+# Main Configuration File for DQN vs DDPG Comparison Project
+# This file consolidates all configuration settings in a hierarchical structure
+
+# Project Information
+project:
+  name: "DQN vs DDPG Comparison"
+  version: "0.1.0"
+  description: "Educational reinforcement learning project comparing DQN and DDPG algorithms"
+
+# Environment Configuration
+environments:
+  cartpole:
+    name: "CartPole-v1"
+    type: "discrete"
+    seed: 42
+    
+  continuous_cartpole:
+    name: "ContinuousCartPole-v0"
+    type: "continuous"
+    seed: 42
+    
+  pendulum:
+    name: "Pendulum-v1"
+    type: "continuous"
+    seed: 42
+
+# Algorithm Configurations
+algorithms:
+  dqn:
+    learning_rate: 0.001
+    gamma: 0.99
+    epsilon: 1.0
+    epsilon_min: 0.01
+    epsilon_decay: 0.995
+    buffer_size: 100000
+    batch_size: 64
+    target_update_freq: 100
+    
+    network:
+      hidden_dims: [256, 256]
+      use_layer_norm: false
+      dropout_rate: 0.0
+      use_dueling: false
+      
+  ddpg:
+    actor_lr: 0.0001
+    critic_lr: 0.001
+    gamma: 0.99
+    tau: 0.005
+    noise_sigma: 0.2
+    noise_decay: 0.995
+    buffer_size: 100000
+    batch_size: 64
+    
+    network:
+      actor:
+        hidden_dims: [400, 300]
+        use_layer_norm: false
+        dropout_rate: 0.0
+      critic:
+        hidden_dims: [400, 300]
+        use_layer_norm: false
+        dropout_rate: 0.0
+
+# Training Configuration
+training:
+  episodes: 500
+  max_steps_per_episode: 500
+  save_freq: 50
+  eval_freq: 10
+  eval_episodes: 5
+  warmup_steps: 1000
+
+# GPU Configuration
+gpu:
+  enabled: auto  # auto, true, false
+  device_id: null
+  use_gpu_buffer: true
+  use_mixed_precision: true
+  cuda_options:
+    allow_tf32: true
+    benchmark: true
+    deterministic: false
+  memory:
+    cleanup_interval: 1000
+    monitor_usage: true
+
+# Video Configuration
+video:
+  # Quality Presets
+  presets:
+    preview:
+      duration: 10
+      fps: 10
+      resolution: [480, 360]
+    standard:
+      duration: 30
+      fps: 30
+      resolution: [640, 480]
+    high_quality:
+      duration: 60
+      fps: 30
+      resolution: [1920, 1080]
+  
+  # Default Settings
+  default_preset: "standard"
+  output_dir: "output/videos"
+  temp_dir: "output/videos/temp"
+  auto_cleanup: true
+  max_age_hours: 24
+  
+  # Theme Configuration
+  theme:
+    background: "#1a1a1a"
+    dqn_color: "#00ff88"
+    ddpg_color: "#ff6b6b"
+    text_color: "#ffffff"
+    grid_color: "#333333"
+
+# Pipeline Configuration  
+pipeline:
+  output_dir: "output/visualization"
+  fps: 30
+  duration_seconds: 240
+  resolution: [1280, 720]
+  show_metrics: true
+  show_progress: true
+  show_episode_info: true
+  max_episodes_to_show: 1000
+  smooth_curves: true
+  dpi: 100
+  bitrate: 5000
+
+# Output Configuration
+output:
+  base_dir: "output"
+  structure:
+    videos: "videos"
+    charts: "charts" 
+    logs: "logs"
+    models: "models"
+    results: "results"
+  
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "output/logs/main.log"
+  
+# Experiment Tracking
+experiments:
+  track_metrics: true
+  save_models: true
+  save_videos: true
+  comparison_mode: "same_environment"  # same_environment, different_environments

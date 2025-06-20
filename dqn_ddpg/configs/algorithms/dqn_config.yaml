@@ -1,0 +1,55 @@
+# DQN Configuration
+agent:
+  learning_rate: 0.001
+  gamma: 0.99
+  epsilon: 1.0
+  epsilon_min: 0.01
+  epsilon_decay: 0.995
+  buffer_size: 100000
+  batch_size: 64
+  target_update_freq: 100
+
+training:
+  episodes: 500
+  max_steps_per_episode: 500
+  save_freq: 50
+  eval_freq: 10
+  eval_episodes: 5
+  warmup_steps: 1000
+
+# GPU 최적화 설정
+gpu:
+  # GPU 사용 여부 (auto: 자동 감지, true: 강제 사용, false: CPU만 사용)
+  enabled: auto
+  # 특정 GPU 디바이스 ID (null이면 자동 선택)
+  device_id: null
+  # GPU 버퍼 사용 여부
+  use_gpu_buffer: true
+  # Mixed Precision Training 사용 여부
+  use_mixed_precision: true
+  # CUDA 최적화 옵션
+  cuda_options:
+    allow_tf32: true
+    benchmark: true
+    deterministic: false
+  # 메모리 관리
+  memory:
+    # 주기적 메모리 정리 간격 (스텝 수)
+    cleanup_interval: 1000
+    # GPU 메모리 사용량 모니터링
+    monitor_usage: true
+
+# 네트워크 아키텍처 설정
+network:
+  # 은닉층 차원
+  hidden_dims: [256, 256]
+  # Layer Normalization 사용 여부
+  use_layer_norm: false
+  # Dropout 비율 (0이면 사용 안함)
+  dropout_rate: 0.0
+  # Dueling DQN 사용 여부
+  use_dueling: false
+
+environment:
+  name: "CartPole-v1"
+  seed: 42

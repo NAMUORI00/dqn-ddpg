@@ -1,0 +1,35 @@
+# Production Environment Configuration
+# Optimized for final results and reproducibility
+
+gpu:
+  mixed_precision: true
+  cuda_options:
+    deterministic: true  # Reproducibility for production results
+    benchmark: false  # Deterministic over performance
+
+video:
+  quality: "high"  # High quality for final results
+  fps: 60
+  resolution: [1920, 1080]
+
+training:
+  max_episodes: 20000  # Extended training for final results
+  eval_frequency: 200
+  save_frequency: 100
+  seed: 42  # Fixed seed for reproducibility
+
+logging:
+  level: "INFO"
+  console: false  # Reduce console output in production
+  file: true
+  structured: true  # JSON logging for analysis
+
+# Production-specific convergence settings
+training:
+  convergence:
+    min_episodes: 1000
+    stability_window: 300
+    cv_threshold: 0.03  # Stricter convergence criteria
+    improvement_threshold: 0.005
+    plateau_patience: 200
+    confidence_threshold: 0.90

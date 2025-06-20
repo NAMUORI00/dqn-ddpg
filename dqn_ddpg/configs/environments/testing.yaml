@@ -1,0 +1,40 @@
+# Testing Environment Configuration
+# Optimized for consistent, fast testing
+
+gpu:
+  enabled: false  # Use CPU for consistent testing across environments
+  mixed_precision: false
+
+video:
+  quality: "preview"  # Fast, low-quality for testing
+  fps: 10
+  resolution: [320, 240]
+
+training:
+  max_episodes: 100  # Very short for testing
+  eval_frequency: 10
+  save_frequency: 10
+  seed: 12345  # Different seed for testing
+
+logging:
+  level: "WARNING"  # Minimal output during testing
+  console: true
+  file: false  # No file logging for tests
+  structured: false
+
+# Testing-specific algorithm settings (very small)
+algorithms:
+  dqn:
+    agent:
+      buffer_size: 1000
+      batch_size: 16
+      epsilon_decay: 0.99  # Faster exploration decay for testing
+    environment:
+      max_episode_steps: 50
+  
+  ddpg:
+    agent:
+      buffer_size: 1000
+      batch_size: 16
+    environment:
+      max_episode_steps: 25

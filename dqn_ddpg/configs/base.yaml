@@ -1,0 +1,111 @@
+# Base Configuration
+# This file contains default settings shared across all environments
+
+project:
+  name: "DQN vs DDPG Comparison"
+  version: "2.0.0"
+  description: "Educational reinforcement learning project comparing DQN and DDPG algorithms"
+
+# GPU and hardware configuration
+gpu:
+  enabled: auto  # auto, true, false
+  device_id: null  # null for auto-select, integer for specific GPU
+  mixed_precision: true
+  memory_fraction: 0.9
+  cuda_options:
+    deterministic: false  # Set to true for reproducibility, false for performance
+    benchmark: true  # Optimize for consistent input sizes
+    allow_tf32: true  # Allow TensorFloat-32 for speedup on Ampere GPUs
+
+# Video generation settings
+video:
+  fps: 30
+  resolution: [1280, 720]  # [width, height]
+  codec: "mp4v"
+  quality: "medium"  # low, medium, high, ultra
+  presets:
+    preview:
+      fps: 15
+      resolution: [640, 480]
+      quality: "low"
+    medium:
+      fps: 30
+      resolution: [1280, 720]
+      quality: "medium"
+    high:
+      fps: 60
+      resolution: [1920, 1080]
+      quality: "high"
+    ultra:
+      fps: 60
+      resolution: [2560, 1440]
+      quality: "ultra"
+
+# Output directory structure
+output:
+  base_dir: "output"
+  models_dir: "models"
+  videos_dir: "videos"
+  logs_dir: "logs"
+  results_dir: "results"
+
+# Training defaults
+training:
+  seed: 42
+  max_episodes: 10000
+  eval_frequency: 100
+  save_frequency: 50
+  convergence:
+    min_episodes: 500
+    stability_window: 200
+    cv_threshold: 0.05
+    improvement_threshold: 0.01
+    plateau_patience: 150
+    confidence_threshold: 0.85
+
+# Algorithm configurations
+algorithms:
+  dqn:
+    agent:
+      learning_rate: 0.001
+      gamma: 0.99
+      epsilon: 1.0
+      epsilon_min: 0.01
+      epsilon_decay: 0.995
+      buffer_size: 100000
+      batch_size: 64
+      target_update_freq: 100
+    environment:
+      name: "CartPole-v1"
+      max_episode_steps: 500
+    network:
+      hidden_layers: [128, 128]
+      activation: "relu"
+  
+  ddpg:
+    agent:
+      actor_lr: 0.0001
+      critic_lr: 0.001
+      gamma: 0.99
+      tau: 0.005
+      noise_sigma: 0.2
+      noise_decay: 0.995
+      buffer_size: 100000
+      batch_size: 64
+    environment:
+      name: "Pendulum-v1"
+      max_episode_steps: 200
+    networks:
+      actor_hidden: [256, 256]
+      critic_hidden: [256, 256]
+      activation: "relu"
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  console: true
+  file: true
+  structured: false  # JSON logging
+  max_file_size: "10MB"
+  backup_count: 5
