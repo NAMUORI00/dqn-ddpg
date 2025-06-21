@@ -1,4 +1,4 @@
-# DQN Configuration
+# DQN Configuration - Optimized for CartPole-v1
 agent:
   learning_rate: 0.001
   gamma: 0.99
@@ -10,7 +10,7 @@ agent:
   target_update_freq: 100
 
 training:
-  episodes: 500
+  episodes: 2000  # Extended for convergence
   max_steps_per_episode: 500
   save_freq: 50
   eval_freq: 10

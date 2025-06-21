@@ -1,24 +1,34 @@
 """
-비디오 생성 및 관리 모듈
+Unified Video System
 
-DQN vs DDPG 학습 과정과 결과를 비디오로 시각화합니다.
+This module consolidates all video-related functionality from:
+- src/core/video_*.py
+- src/visualization/video/
 
-모듈 구성:
-- pipeline: 학습 과정 비디오 생성 파이프라인
-- manager: 실시간 비디오 녹화 관리
-- recorder: 이중 품질 비디오 녹화
-- generator: 다양한 타입의 비디오 생성기
+Provides a unified interface for:
+- Video recording during training
+- Video generation from data
+- Video pipeline processing
+- Video management and utilities
 """
 
-from .pipeline import VideoRenderingPipeline
-from .manager import VideoManager  
-from .recorder import DualQualityRecorder
-from .generator import ComparisonVideoGenerator, LearningVideoGenerator
+# Import core video functionality
+from .manager import VideoManager, VideoConfig
+from .pipeline import VideoPipeline, PipelineConfig  
+from .recorder import VideoRecorder, RecorderConfig
+from .utils import VideoUtils
+
+# Import legacy compatibility
+from .legacy import LegacyVideoManager, LegacyPipeline
 
 __all__ = [
-    'VideoRenderingPipeline',
     'VideoManager',
-    'DualQualityRecorder', 
-    'ComparisonVideoGenerator',
-    'LearningVideoGenerator'
+    'VideoConfig', 
+    'VideoPipeline',
+    'PipelineConfig',
+    'VideoRecorder',
+    'RecorderConfig',
+    'VideoUtils',
+    'LegacyVideoManager',
+    'LegacyPipeline',
 ]

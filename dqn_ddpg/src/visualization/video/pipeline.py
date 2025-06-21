@@ -28,8 +28,8 @@ import os
 import json
 from pathlib import Path
 
-from ..core.base import BaseVisualizer
-from ..core.utils import (
+from ...visualization.core.base import BaseVisualizer
+from ...visualization.core.utils import (
     smooth_data, validate_experiment_data, ensure_path_exists,
     get_output_path_by_extension, create_structured_filename
 )

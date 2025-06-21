@@ -7,7 +7,8 @@ from typing import Dict, Tuple, Optional, Any
 
 from .base_agent import BaseReinforcementAgent
 from ..networks import Actor, Critic
-from ..core import GaussianNoise, soft_update
+from ..core import soft_update
+from .noise import GaussianNoise
 
 
 class DDPGAgent(BaseReinforcementAgent):
@@ -139,6 +140,10 @@ class DDPGAgent(BaseReinforcementAgent):
         
         # dtype 확보 (환경 호환성)
         return action.astype(np.float32)
+    
+    def act(self, state: np.ndarray, deterministic: bool = False) -> np.ndarray:
+        """Compatibility alias for select_action"""
+        return self.select_action(state, add_noise=not deterministic)
     
     def store_transition(self, state: np.ndarray, action: np.ndarray, reward: float,
                         next_state: np.ndarray, done: bool) -> None:

@@ -18,8 +18,8 @@ import threading
 import time
 from datetime import datetime
 
-from ..core.base import BaseVisualizer
-from ..core.utils import ensure_path_exists, get_timestamp
+from ...visualization.core.base import BaseVisualizer
+from ...visualization.core.utils import ensure_path_exists, get_timestamp
 
 
 class VideoManager(BaseVisualizer):

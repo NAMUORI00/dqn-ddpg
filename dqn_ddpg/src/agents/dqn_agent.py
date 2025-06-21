@@ -110,8 +110,17 @@ class DQNAgent(BaseReinforcementAgent):
             with torch.no_grad():
                 q_values = self.q_network(state_tensor)
                 action = q_values.argmax(dim=1).item()
+                
+                # 안전성 체크
+                if action < 0 or action >= self.action_dim:
+                    print(f"⚠️ DQN 행동 오류: action={action}, q_values={q_values}")
+                    action = 0  # 안전한 기본값
             
             return action
+    
+    def act(self, state: np.ndarray, deterministic: bool = False) -> int:
+        """Compatibility alias for select_action"""
+        return self.select_action(state, deterministic)
     
     def store_transition(self, state: np.ndarray, action: int, reward: float, 
                         next_state: np.ndarray, done: bool) -> None:
@@ -134,6 +143,12 @@ class DQNAgent(BaseReinforcementAgent):
         
         # DQN-specific preprocessing
         actions = actions.squeeze().long()  # Convert to discrete actions
+        
+        # 행동 인덱스 안전성 체크
+        if torch.any(actions < 0) or torch.any(actions >= self.action_dim):
+            print(f"⚠️ DQN update 행동 오류: actions={actions[:5]}, action_dim={self.action_dim}")
+            actions = torch.clamp(actions, 0, self.action_dim - 1)
+        
         if rewards.dim() == 1:
             rewards = rewards.unsqueeze(1)
         if dones.dim() == 1:

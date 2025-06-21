@@ -97,7 +97,19 @@ class DiscretizedDQNAgent(DQNAgent):
         Returns:
             연속 행동 값 (shape: [1])
         """
+        # 안전성 체크
+        if discrete_action < 0 or discrete_action >= len(self.action_values):
+            print(f"⚠️ DiscretizedDQN 인덱스 오류: discrete_action={discrete_action}, num_actions={len(self.action_values)}")
+            discrete_action = 0  # 안전한 기본값
+        
         return np.array([self.action_values[discrete_action]], dtype=np.float32)
+    
+    def act(self, state: np.ndarray, deterministic: bool = False) -> np.ndarray:
+        """Compatibility alias - returns continuous action for environment"""
+        # 부모 클래스의 이산 행동 선택
+        discrete_action = super().select_action(state, deterministic)
+        # 연속 값으로 변환하여 반환
+        return self.discrete_to_continuous(discrete_action)
     
     def continuous_to_discrete(self, continuous_action: float) -> int:
         """연속 행동을 가장 가까운 이산 행동으로 변환
@@ -148,6 +160,11 @@ class DiscretizedDQNAgent(DQNAgent):
         # 연속 행동을 이산 행동으로 변환
         continuous_value = action[0] if isinstance(action, np.ndarray) else action
         discrete_action = self.continuous_to_discrete(continuous_value)
+        
+        # 안전성 체크
+        if discrete_action < 0 or discrete_action >= self.num_actions:
+            print(f"⚠️ DiscretizedDQN store_transition 오류: discrete_action={discrete_action}, continuous_value={continuous_value}")
+            discrete_action = 0  # 안전한 기본값
         
         # 부모 클래스의 저장 메서드 호출
         super().store_transition(state, discrete_action, reward, next_state, done)
