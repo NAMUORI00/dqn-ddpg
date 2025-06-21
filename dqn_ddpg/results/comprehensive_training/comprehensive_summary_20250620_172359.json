@@ -1,0 +1,10 @@
+{
+  "CartPole-v1": {
+    "dqn": {
+      "error": "환경 CartPole-v1, 알고리즘 dqn 훈련 실패: 'TimeLimit' object has no attribute 'seed'",
+      "env_name": "CartPole-v1",
+      "algorithm": "dqn",
+      "timestamp": "2025-06-20T17:23:59.263682"
+    }
+  }
+}

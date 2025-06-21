@@ -1,0 +1,10 @@
+{
+  "CartPole-v1": {
+    "dqn": {
+      "error": "환경 CartPole-v1, 알고리즘 dqn 훈련 실패: 'EpisodeCheckpointManager' object has no attribute 'save_episode_checkpoint'",
+      "env_name": "CartPole-v1",
+      "algorithm": "dqn",
+      "timestamp": "2025-06-20T17:33:27.035961"
+    }
+  }
+}

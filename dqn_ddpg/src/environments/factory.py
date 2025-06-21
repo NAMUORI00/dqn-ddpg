@@ -7,7 +7,7 @@ import gymnasium as gym
 from typing import Optional, Dict, Any, Union
 from pathlib import Path
 
-from .continuous_cartpole import ContinuousCartPoleEnv
+from .continuous_cartpole import ContinuousCartPole
 from .wrappers import create_dqn_env, create_ddpg_env
 from .video_wrappers import VideoRecordingWrapper
 from ..core.config_manager import ConfigManager, VideoConfig
@@ -95,9 +95,10 @@ class EnvironmentFactory:
         if video_config is not None:
             env = self._apply_video_wrapper(env, video_config)
         
-        # Set seed if provided
+        # Set seed if provided (gymnasium v1.0+ style)
         if seed is not None:
-            env.seed(seed)
+            # Store seed for reset
+            env._factory_seed = seed
         
         return env
     
@@ -219,7 +220,7 @@ class EnvironmentFactory:
         """Create base environment"""
         if env_name == 'ContinuousCartPole':
             # Create our custom continuous CartPole environment
-            return ContinuousCartPoleEnv(**kwargs)
+            return ContinuousCartPole(**kwargs)
         else:
             # Create standard gym environment
             return gym.make(env_name, **kwargs)

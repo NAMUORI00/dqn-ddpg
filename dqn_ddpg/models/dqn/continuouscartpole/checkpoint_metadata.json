@@ -1,0 +1,2845 @@
+{
+  "algorithm": "dqn",
+  "environment": "continuouscartpole",
+  "total_saved": 101,
+  "total_size_mb": 78.42186450958252,
+  "last_updated": 1750411513.2745137,
+  "checkpoints": [
+    {
+      "episode_id": 0,
+      "model_path": "models/dqn/continuouscartpole/episode_0000.pth",
+      "metrics": {
+        "episode_id": 0,
+        "total_reward": 13.0,
+        "episode_length": 13,
+        "average_loss": 0.0,
+        "exploration_rate": 1.0,
+        "timestamp": 1750408674.0568283,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.2616739273071289,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 10,
+      "model_path": "models/dqn/continuouscartpole/episode_0010.pth",
+      "metrics": {
+        "episode_id": 10,
+        "total_reward": 14.0,
+        "episode_length": 14,
+        "average_loss": 0.11712896511224764,
+        "exploration_rate": 0.5159963842937159,
+        "timestamp": 1750408674.456376,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 20,
+      "model_path": "models/dqn/continuouscartpole/episode_0020.pth",
+      "metrics": {
+        "episode_id": 20,
+        "total_reward": 9.0,
+        "episode_length": 9,
+        "average_loss": 0.14979088678956032,
+        "exploration_rate": 0.2408545925762412,
+        "timestamp": 1750408674.6124313,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 30,
+      "model_path": "models/dqn/continuouscartpole/episode_0030.pth",
+      "metrics": {
+        "episode_id": 30,
+        "total_reward": 43.0,
+        "episode_length": 43,
+        "average_loss": 0.18401384373130494,
+        "exploration_rate": 0.06285510723190912,
+        "timestamp": 1750408674.8334453,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 40,
+      "model_path": "models/dqn/continuouscartpole/episode_0040.pth",
+      "metrics": {
+        "episode_id": 40,
+        "total_reward": 73.0,
+        "episode_length": 73,
+        "average_loss": 0.7180554909657125,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408675.753171,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 49,
+      "model_path": "models/dqn/continuouscartpole/episode_0049.pth",
+      "metrics": {
+        "episode_id": 49,
+        "total_reward": 139.0,
+        "episode_length": 139,
+        "average_loss": 2.5159401227083564,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408676.9540205,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole",
+        "final_model": true
+      }
+    },
+    {
+      "episode_id": 0,
+      "model_path": "models/dqn/continuouscartpole/episode_0000.pth",
+      "metrics": {
+        "episode_id": 0,
+        "total_reward": 16.0,
+        "episode_length": 16,
+        "average_loss": 0.0,
+        "exploration_rate": 1.0,
+        "timestamp": 1750408974.4675186,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.2616739273071289,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 10,
+      "model_path": "models/dqn/continuouscartpole/episode_0010.pth",
+      "metrics": {
+        "episode_id": 10,
+        "total_reward": 26.0,
+        "episode_length": 26,
+        "average_loss": 0.0448802115682226,
+        "exploration_rate": 0.3743896431025813,
+        "timestamp": 1750408974.6429508,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 20,
+      "model_path": "models/dqn/continuouscartpole/episode_0020.pth",
+      "metrics": {
+        "episode_id": 20,
+        "total_reward": 45.0,
+        "episode_length": 45,
+        "average_loss": 0.18722313526603912,
+        "exploration_rate": 0.1473726336968319,
+        "timestamp": 1750408974.8123245,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 30,
+      "model_path": "models/dqn/continuouscartpole/episode_0030.pth",
+      "metrics": {
+        "episode_id": 30,
+        "total_reward": 147.0,
+        "episode_length": 147,
+        "average_loss": 0.23356161492743663,
+        "exploration_rate": 0.03227084302572862,
+        "timestamp": 1750408975.074212,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 40,
+      "model_path": "models/dqn/continuouscartpole/episode_0040.pth",
+      "metrics": {
+        "episode_id": 40,
+        "total_reward": 219.0,
+        "episode_length": 219,
+        "average_loss": 1.1658586415900216,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408976.4969,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 50,
+      "model_path": "models/dqn/continuouscartpole/episode_0050.pth",
+      "metrics": {
+        "episode_id": 50,
+        "total_reward": 164.0,
+        "episode_length": 164,
+        "average_loss": 2.059411799148997,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408978.0204158,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 60,
+      "model_path": "models/dqn/continuouscartpole/episode_0060.pth",
+      "metrics": {
+        "episode_id": 60,
+        "total_reward": 182.0,
+        "episode_length": 182,
+        "average_loss": 2.6519513459323525,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408979.5873718,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 70,
+      "model_path": "models/dqn/continuouscartpole/episode_0070.pth",
+      "metrics": {
+        "episode_id": 70,
+        "total_reward": 213.0,
+        "episode_length": 213,
+        "average_loss": 4.302769474877578,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408980.837594,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 80,
+      "model_path": "models/dqn/continuouscartpole/episode_0080.pth",
+      "metrics": {
+        "episode_id": 80,
+        "total_reward": 120.0,
+        "episode_length": 120,
+        "average_loss": 5.2344983629261455,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408982.3911023,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 90,
+      "model_path": "models/dqn/continuouscartpole/episode_0090.pth",
+      "metrics": {
+        "episode_id": 90,
+        "total_reward": 168.0,
+        "episode_length": 168,
+        "average_loss": 1.1038316609559669,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408983.731821,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 99,
+      "model_path": "models/dqn/continuouscartpole/episode_0099.pth",
+      "metrics": {
+        "episode_id": 99,
+        "total_reward": 251.0,
+        "episode_length": 251,
+        "average_loss": 0.40657105690157747,
+        "exploration_rate": 0.01,
+        "timestamp": 1750408985.0694761,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole",
+        "final_model": true
+      }
+    },
+    {
+      "episode_id": 0,
+      "model_path": "models/dqn/continuouscartpole/episode_0000.pth",
+      "metrics": {
+        "episode_id": 0,
+        "total_reward": 15.0,
+        "episode_length": 15,
+        "average_loss": 0.0,
+        "exploration_rate": 1.0,
+        "timestamp": 1750411217.9742758,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.2616739273071289,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 10,
+      "model_path": "models/dqn/continuouscartpole/episode_0010.pth",
+      "metrics": {
+        "episode_id": 10,
+        "total_reward": 21.0,
+        "episode_length": 21,
+        "average_loss": 0.0475804488218966,
+        "exploration_rate": 0.4222502236424958,
+        "timestamp": 1750411218.1485891,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 20,
+      "model_path": "models/dqn/continuouscartpole/episode_0020.pth",
+      "metrics": {
+        "episode_id": 20,
+        "total_reward": 31.0,
+        "episode_length": 31,
+        "average_loss": 0.43117654732158106,
+        "exploration_rate": 0.19318370215794672,
+        "timestamp": 1750411218.2868052,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 30,
+      "model_path": "models/dqn/continuouscartpole/episode_0030.pth",
+      "metrics": {
+        "episode_id": 30,
+        "total_reward": 10.0,
+        "episode_length": 10,
+        "average_loss": 0.16838716566562653,
+        "exploration_rate": 0.1032418023864836,
+        "timestamp": 1750411218.3921676,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 40,
+      "model_path": "models/dqn/continuouscartpole/episode_0040.pth",
+      "metrics": {
+        "episode_id": 40,
+        "total_reward": 38.0,
+        "episode_length": 38,
+        "average_loss": 0.21297311758328424,
+        "exploration_rate": 0.04537752660798141,
+        "timestamp": 1750411218.5473566,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 50,
+      "model_path": "models/dqn/continuouscartpole/episode_0050.pth",
+      "metrics": {
+        "episode_id": 50,
+        "total_reward": 189.0,
+        "episode_length": 189,
+        "average_loss": 0.9598122202845477,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411219.973066,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 60,
+      "model_path": "models/dqn/continuouscartpole/episode_0060.pth",
+      "metrics": {
+        "episode_id": 60,
+        "total_reward": 199.0,
+        "episode_length": 199,
+        "average_loss": 1.6128950694847346,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411221.8348532,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 70,
+      "model_path": "models/dqn/continuouscartpole/episode_0070.pth",
+      "metrics": {
+        "episode_id": 70,
+        "total_reward": 173.0,
+        "episode_length": 173,
+        "average_loss": 1.996268792562402,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411223.6937766,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 80,
+      "model_path": "models/dqn/continuouscartpole/episode_0080.pth",
+      "metrics": {
+        "episode_id": 80,
+        "total_reward": 167.0,
+        "episode_length": 167,
+        "average_loss": 1.631559521116004,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411225.4122288,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 90,
+      "model_path": "models/dqn/continuouscartpole/episode_0090.pth",
+      "metrics": {
+        "episode_id": 90,
+        "total_reward": 267.0,
+        "episode_length": 267,
+        "average_loss": 1.500662050652928,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411227.618404,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 100,
+      "model_path": "models/dqn/continuouscartpole/episode_0100.pth",
+      "metrics": {
+        "episode_id": 100,
+        "total_reward": 258.0,
+        "episode_length": 258,
+        "average_loss": 1.1049407827415207,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411229.5641687,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 110,
+      "model_path": "models/dqn/continuouscartpole/episode_0110.pth",
+      "metrics": {
+        "episode_id": 110,
+        "total_reward": 424.0,
+        "episode_length": 424,
+        "average_loss": 1.3745692187024035,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411231.4642005,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 120,
+      "model_path": "models/dqn/continuouscartpole/episode_0120.pth",
+      "metrics": {
+        "episode_id": 120,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 1.7323191400840878,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411231.5017605,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 130,
+      "model_path": "models/dqn/continuouscartpole/episode_0130.pth",
+      "metrics": {
+        "episode_id": 130,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 5.0838620457202195,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411235.7518482,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 140,
+      "model_path": "models/dqn/continuouscartpole/episode_0140.pth",
+      "metrics": {
+        "episode_id": 140,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 6.464598644457758,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411240.2545936,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 150,
+      "model_path": "models/dqn/continuouscartpole/episode_0150.pth",
+      "metrics": {
+        "episode_id": 150,
+        "total_reward": 468.0,
+        "episode_length": 468,
+        "average_loss": 11.533400177772547,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411244.8010778,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 160,
+      "model_path": "models/dqn/continuouscartpole/episode_0160.pth",
+      "metrics": {
+        "episode_id": 160,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 12.178202234625816,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411249.312751,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 170,
+      "model_path": "models/dqn/continuouscartpole/episode_0170.pth",
+      "metrics": {
+        "episode_id": 170,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 14.852513244591654,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411253.9717271,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 180,
+      "model_path": "models/dqn/continuouscartpole/episode_0180.pth",
+      "metrics": {
+        "episode_id": 180,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 13.886856212683021,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411258.4001148,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 190,
+      "model_path": "models/dqn/continuouscartpole/episode_0190.pth",
+      "metrics": {
+        "episode_id": 190,
+        "total_reward": 258.0,
+        "episode_length": 258,
+        "average_loss": 18.36804806823705,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411259.7483077,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 200,
+      "model_path": "models/dqn/continuouscartpole/episode_0200.pth",
+      "metrics": {
+        "episode_id": 200,
+        "total_reward": 129.0,
+        "episode_length": 129,
+        "average_loss": 24.32623192686732,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411262.3558912,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 210,
+      "model_path": "models/dqn/continuouscartpole/episode_0210.pth",
+      "metrics": {
+        "episode_id": 210,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 19.253986425444484,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411266.602814,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 220,
+      "model_path": "models/dqn/continuouscartpole/episode_0220.pth",
+      "metrics": {
+        "episode_id": 220,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 17.20825488218665,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411270.7104511,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 230,
+      "model_path": "models/dqn/continuouscartpole/episode_0230.pth",
+      "metrics": {
+        "episode_id": 230,
+        "total_reward": 226.0,
+        "episode_length": 226,
+        "average_loss": 24.245909427136052,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411274.8392394,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 240,
+      "model_path": "models/dqn/continuouscartpole/episode_0240.pth",
+      "metrics": {
+        "episode_id": 240,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 22.135123003005983,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411278.7153776,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 250,
+      "model_path": "models/dqn/continuouscartpole/episode_0250.pth",
+      "metrics": {
+        "episode_id": 250,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 19.514823738090694,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411281.6033788,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 260,
+      "model_path": "models/dqn/continuouscartpole/episode_0260.pth",
+      "metrics": {
+        "episode_id": 260,
+        "total_reward": 124.0,
+        "episode_length": 124,
+        "average_loss": 22.784820865328996,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411284.1966977,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 270,
+      "model_path": "models/dqn/continuouscartpole/episode_0270.pth",
+      "metrics": {
+        "episode_id": 270,
+        "total_reward": 132.0,
+        "episode_length": 132,
+        "average_loss": 24.274504842801075,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411285.8557084,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 280,
+      "model_path": "models/dqn/continuouscartpole/episode_0280.pth",
+      "metrics": {
+        "episode_id": 280,
+        "total_reward": 112.0,
+        "episode_length": 112,
+        "average_loss": 29.070077441133826,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411287.7648396,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 290,
+      "model_path": "models/dqn/continuouscartpole/episode_0290.pth",
+      "metrics": {
+        "episode_id": 290,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 22.92144136202708,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411291.5742497,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 300,
+      "model_path": "models/dqn/continuouscartpole/episode_0300.pth",
+      "metrics": {
+        "episode_id": 300,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 28.797742218509317,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411296.6905065,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 310,
+      "model_path": "models/dqn/continuouscartpole/episode_0310.pth",
+      "metrics": {
+        "episode_id": 310,
+        "total_reward": 82.0,
+        "episode_length": 82,
+        "average_loss": 20.149118181499766,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411301.146765,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 320,
+      "model_path": "models/dqn/continuouscartpole/episode_0320.pth",
+      "metrics": {
+        "episode_id": 320,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 27.02732237944752,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411305.9693205,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 330,
+      "model_path": "models/dqn/continuouscartpole/episode_0330.pth",
+      "metrics": {
+        "episode_id": 330,
+        "total_reward": 250.0,
+        "episode_length": 250,
+        "average_loss": 22.90672933485359,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411309.0369673,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 340,
+      "model_path": "models/dqn/continuouscartpole/episode_0340.pth",
+      "metrics": {
+        "episode_id": 340,
+        "total_reward": 110.0,
+        "episode_length": 110,
+        "average_loss": 29.53114307949489,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411311.4494212,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 350,
+      "model_path": "models/dqn/continuouscartpole/episode_0350.pth",
+      "metrics": {
+        "episode_id": 350,
+        "total_reward": 108.0,
+        "episode_length": 108,
+        "average_loss": 23.134351434806984,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411312.945536,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 360,
+      "model_path": "models/dqn/continuouscartpole/episode_0360.pth",
+      "metrics": {
+        "episode_id": 360,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 24.396088564891368,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411314.2993956,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 370,
+      "model_path": "models/dqn/continuouscartpole/episode_0370.pth",
+      "metrics": {
+        "episode_id": 370,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 28.29179338162951,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411319.4834375,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 380,
+      "model_path": "models/dqn/continuouscartpole/episode_0380.pth",
+      "metrics": {
+        "episode_id": 380,
+        "total_reward": 129.0,
+        "episode_length": 129,
+        "average_loss": 22.632295134484536,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411323.137596,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 390,
+      "model_path": "models/dqn/continuouscartpole/episode_0390.pth",
+      "metrics": {
+        "episode_id": 390,
+        "total_reward": 430.0,
+        "episode_length": 430,
+        "average_loss": 25.40127680508723,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411327.3391104,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 400,
+      "model_path": "models/dqn/continuouscartpole/episode_0400.pth",
+      "metrics": {
+        "episode_id": 400,
+        "total_reward": 131.0,
+        "episode_length": 131,
+        "average_loss": 26.920751565825622,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411329.2631445,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 410,
+      "model_path": "models/dqn/continuouscartpole/episode_0410.pth",
+      "metrics": {
+        "episode_id": 410,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 18.835933191929012,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411334.2887163,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 420,
+      "model_path": "models/dqn/continuouscartpole/episode_0420.pth",
+      "metrics": {
+        "episode_id": 420,
+        "total_reward": 274.0,
+        "episode_length": 274,
+        "average_loss": 26.61824306624051,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411337.308817,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 430,
+      "model_path": "models/dqn/continuouscartpole/episode_0430.pth",
+      "metrics": {
+        "episode_id": 430,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 28.960820254258813,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411341.5272722,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 440,
+      "model_path": "models/dqn/continuouscartpole/episode_0440.pth",
+      "metrics": {
+        "episode_id": 440,
+        "total_reward": 257.0,
+        "episode_length": 257,
+        "average_loss": 31.137331595796557,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411343.5382876,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 450,
+      "model_path": "models/dqn/continuouscartpole/episode_0450.pth",
+      "metrics": {
+        "episode_id": 450,
+        "total_reward": 19.0,
+        "episode_length": 19,
+        "average_loss": 26.084180318701424,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411345.365235,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 460,
+      "model_path": "models/dqn/continuouscartpole/episode_0460.pth",
+      "metrics": {
+        "episode_id": 460,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 25.892379020765425,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411348.3743515,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 470,
+      "model_path": "models/dqn/continuouscartpole/episode_0470.pth",
+      "metrics": {
+        "episode_id": 470,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 27.722904063239692,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411353.7850788,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 480,
+      "model_path": "models/dqn/continuouscartpole/episode_0480.pth",
+      "metrics": {
+        "episode_id": 480,
+        "total_reward": 173.0,
+        "episode_length": 173,
+        "average_loss": 26.898931849936314,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411357.3171504,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 490,
+      "model_path": "models/dqn/continuouscartpole/episode_0490.pth",
+      "metrics": {
+        "episode_id": 490,
+        "total_reward": 156.0,
+        "episode_length": 156,
+        "average_loss": 26.76389077105201,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411359.7071176,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 500,
+      "model_path": "models/dqn/continuouscartpole/episode_0500.pth",
+      "metrics": {
+        "episode_id": 500,
+        "total_reward": 422.0,
+        "episode_length": 422,
+        "average_loss": 28.668579093692603,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411364.003542,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 510,
+      "model_path": "models/dqn/continuouscartpole/episode_0510.pth",
+      "metrics": {
+        "episode_id": 510,
+        "total_reward": 26.0,
+        "episode_length": 26,
+        "average_loss": 19.827772881549137,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411366.4480596,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 520,
+      "model_path": "models/dqn/continuouscartpole/episode_0520.pth",
+      "metrics": {
+        "episode_id": 520,
+        "total_reward": 182.0,
+        "episode_length": 182,
+        "average_loss": 28.871090686337634,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411368.9219358,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 530,
+      "model_path": "models/dqn/continuouscartpole/episode_0530.pth",
+      "metrics": {
+        "episode_id": 530,
+        "total_reward": 476.0,
+        "episode_length": 476,
+        "average_loss": 30.187114865190406,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411370.3384197,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 540,
+      "model_path": "models/dqn/continuouscartpole/episode_0540.pth",
+      "metrics": {
+        "episode_id": 540,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 33.00441341818869,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411375.4783642,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 550,
+      "model_path": "models/dqn/continuouscartpole/episode_0550.pth",
+      "metrics": {
+        "episode_id": 550,
+        "total_reward": 173.0,
+        "episode_length": 173,
+        "average_loss": 25.942447737300757,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411379.5971074,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 560,
+      "model_path": "models/dqn/continuouscartpole/episode_0560.pth",
+      "metrics": {
+        "episode_id": 560,
+        "total_reward": 294.0,
+        "episode_length": 294,
+        "average_loss": 33.23608019458903,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411381.562131,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 570,
+      "model_path": "models/dqn/continuouscartpole/episode_0570.pth",
+      "metrics": {
+        "episode_id": 570,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 33.8008614889048,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411385.4934633,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 580,
+      "model_path": "models/dqn/continuouscartpole/episode_0580.pth",
+      "metrics": {
+        "episode_id": 580,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 34.054052752546966,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411389.9368393,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 590,
+      "model_path": "models/dqn/continuouscartpole/episode_0590.pth",
+      "metrics": {
+        "episode_id": 590,
+        "total_reward": 121.0,
+        "episode_length": 121,
+        "average_loss": 20.05501928180456,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411392.7675292,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 600,
+      "model_path": "models/dqn/continuouscartpole/episode_0600.pth",
+      "metrics": {
+        "episode_id": 600,
+        "total_reward": 117.0,
+        "episode_length": 117,
+        "average_loss": 42.15638908747042,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411395.1503475,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 610,
+      "model_path": "models/dqn/continuouscartpole/episode_0610.pth",
+      "metrics": {
+        "episode_id": 610,
+        "total_reward": 334.0,
+        "episode_length": 334,
+        "average_loss": 31.133443328178302,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411398.3721156,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 620,
+      "model_path": "models/dqn/continuouscartpole/episode_0620.pth",
+      "metrics": {
+        "episode_id": 620,
+        "total_reward": 274.0,
+        "episode_length": 274,
+        "average_loss": 31.325872980826365,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411401.5318384,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 630,
+      "model_path": "models/dqn/continuouscartpole/episode_0630.pth",
+      "metrics": {
+        "episode_id": 630,
+        "total_reward": 72.0,
+        "episode_length": 72,
+        "average_loss": 48.45194173824146,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411405.8704803,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 640,
+      "model_path": "models/dqn/continuouscartpole/episode_0640.pth",
+      "metrics": {
+        "episode_id": 640,
+        "total_reward": 125.0,
+        "episode_length": 125,
+        "average_loss": 40.081490994781255,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411408.8717055,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 650,
+      "model_path": "models/dqn/continuouscartpole/episode_0650.pth",
+      "metrics": {
+        "episode_id": 650,
+        "total_reward": 319.0,
+        "episode_length": 319,
+        "average_loss": 39.474846577814844,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411410.196014,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 660,
+      "model_path": "models/dqn/continuouscartpole/episode_0660.pth",
+      "metrics": {
+        "episode_id": 660,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 32.983766732819376,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411413.4236486,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 670,
+      "model_path": "models/dqn/continuouscartpole/episode_0670.pth",
+      "metrics": {
+        "episode_id": 670,
+        "total_reward": 50.0,
+        "episode_length": 50,
+        "average_loss": 31.579339831992982,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411417.8115242,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 680,
+      "model_path": "models/dqn/continuouscartpole/episode_0680.pth",
+      "metrics": {
+        "episode_id": 680,
+        "total_reward": 30.0,
+        "episode_length": 30,
+        "average_loss": 11.372846148100992,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411421.3838956,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 690,
+      "model_path": "models/dqn/continuouscartpole/episode_0690.pth",
+      "metrics": {
+        "episode_id": 690,
+        "total_reward": 150.0,
+        "episode_length": 150,
+        "average_loss": 26.974457063886028,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411422.5880275,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 700,
+      "model_path": "models/dqn/continuouscartpole/episode_0700.pth",
+      "metrics": {
+        "episode_id": 700,
+        "total_reward": 150.0,
+        "episode_length": 150,
+        "average_loss": 33.25023444883525,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411426.840338,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 710,
+      "model_path": "models/dqn/continuouscartpole/episode_0710.pth",
+      "metrics": {
+        "episode_id": 710,
+        "total_reward": 117.0,
+        "episode_length": 117,
+        "average_loss": 28.75216294511452,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411428.9138327,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 720,
+      "model_path": "models/dqn/continuouscartpole/episode_0720.pth",
+      "metrics": {
+        "episode_id": 720,
+        "total_reward": 153.0,
+        "episode_length": 153,
+        "average_loss": 33.8920604134575,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411432.996568,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 730,
+      "model_path": "models/dqn/continuouscartpole/episode_0730.pth",
+      "metrics": {
+        "episode_id": 730,
+        "total_reward": 163.0,
+        "episode_length": 163,
+        "average_loss": 44.45989432953801,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411435.5552678,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 740,
+      "model_path": "models/dqn/continuouscartpole/episode_0740.pth",
+      "metrics": {
+        "episode_id": 740,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 30.866357073854655,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411438.401986,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 750,
+      "model_path": "models/dqn/continuouscartpole/episode_0750.pth",
+      "metrics": {
+        "episode_id": 750,
+        "total_reward": 195.0,
+        "episode_length": 195,
+        "average_loss": 35.92307079382814,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411442.6070683,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 760,
+      "model_path": "models/dqn/continuouscartpole/episode_0760.pth",
+      "metrics": {
+        "episode_id": 760,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 37.66934382838011,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411445.6900296,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 770,
+      "model_path": "models/dqn/continuouscartpole/episode_0770.pth",
+      "metrics": {
+        "episode_id": 770,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 35.09647023362852,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411450.3989568,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 780,
+      "model_path": "models/dqn/continuouscartpole/episode_0780.pth",
+      "metrics": {
+        "episode_id": 780,
+        "total_reward": 104.0,
+        "episode_length": 104,
+        "average_loss": 24.598478904549175,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411451.2532175,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 790,
+      "model_path": "models/dqn/continuouscartpole/episode_0790.pth",
+      "metrics": {
+        "episode_id": 790,
+        "total_reward": 473.0,
+        "episode_length": 473,
+        "average_loss": 34.04021236480826,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411454.7533832,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 800,
+      "model_path": "models/dqn/continuouscartpole/episode_0800.pth",
+      "metrics": {
+        "episode_id": 800,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 31.23435290266201,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411459.0668564,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 810,
+      "model_path": "models/dqn/continuouscartpole/episode_0810.pth",
+      "metrics": {
+        "episode_id": 810,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 36.69117573123239,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411463.4986012,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 820,
+      "model_path": "models/dqn/continuouscartpole/episode_0820.pth",
+      "metrics": {
+        "episode_id": 820,
+        "total_reward": 131.0,
+        "episode_length": 131,
+        "average_loss": 32.742987446088826,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411465.834481,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 830,
+      "model_path": "models/dqn/continuouscartpole/episode_0830.pth",
+      "metrics": {
+        "episode_id": 830,
+        "total_reward": 285.0,
+        "episode_length": 285,
+        "average_loss": 38.577508163341044,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411468.461584,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 840,
+      "model_path": "models/dqn/continuouscartpole/episode_0840.pth",
+      "metrics": {
+        "episode_id": 840,
+        "total_reward": 95.0,
+        "episode_length": 95,
+        "average_loss": 35.55390699897942,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411469.3521929,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 850,
+      "model_path": "models/dqn/continuouscartpole/episode_0850.pth",
+      "metrics": {
+        "episode_id": 850,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 36.19510915495455,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411472.2735174,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 860,
+      "model_path": "models/dqn/continuouscartpole/episode_0860.pth",
+      "metrics": {
+        "episode_id": 860,
+        "total_reward": 161.0,
+        "episode_length": 161,
+        "average_loss": 24.698623560230185,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411474.3861208,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 870,
+      "model_path": "models/dqn/continuouscartpole/episode_0870.pth",
+      "metrics": {
+        "episode_id": 870,
+        "total_reward": 175.0,
+        "episode_length": 175,
+        "average_loss": 38.0005433194765,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411477.20319,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 880,
+      "model_path": "models/dqn/continuouscartpole/episode_0880.pth",
+      "metrics": {
+        "episode_id": 880,
+        "total_reward": 13.0,
+        "episode_length": 13,
+        "average_loss": 63.43569486416303,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411478.4644582,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 890,
+      "model_path": "models/dqn/continuouscartpole/episode_0890.pth",
+      "metrics": {
+        "episode_id": 890,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 34.423315848935395,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411480.9701679,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 900,
+      "model_path": "models/dqn/continuouscartpole/episode_0900.pth",
+      "metrics": {
+        "episode_id": 900,
+        "total_reward": 500.0,
+        "episode_length": 500,
+        "average_loss": 33.98745968440548,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411484.809137,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 910,
+      "model_path": "models/dqn/continuouscartpole/episode_0910.pth",
+      "metrics": {
+        "episode_id": 910,
+        "total_reward": 153.0,
+        "episode_length": 153,
+        "average_loss": 30.029636448930972,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411488.048068,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 920,
+      "model_path": "models/dqn/continuouscartpole/episode_0920.pth",
+      "metrics": {
+        "episode_id": 920,
+        "total_reward": 149.0,
+        "episode_length": 149,
+        "average_loss": 37.508157917429635,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411491.1849666,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 930,
+      "model_path": "models/dqn/continuouscartpole/episode_0930.pth",
+      "metrics": {
+        "episode_id": 930,
+        "total_reward": 116.0,
+        "episode_length": 116,
+        "average_loss": 24.149274236667132,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411494.1957102,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 940,
+      "model_path": "models/dqn/continuouscartpole/episode_0940.pth",
+      "metrics": {
+        "episode_id": 940,
+        "total_reward": 446.0,
+        "episode_length": 446,
+        "average_loss": 43.17647350761588,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411496.2287385,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 950,
+      "model_path": "models/dqn/continuouscartpole/episode_0950.pth",
+      "metrics": {
+        "episode_id": 950,
+        "total_reward": 46.0,
+        "episode_length": 46,
+        "average_loss": 48.21123914372014,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411500.2372017,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 960,
+      "model_path": "models/dqn/continuouscartpole/episode_0960.pth",
+      "metrics": {
+        "episode_id": 960,
+        "total_reward": 297.0,
+        "episode_length": 297,
+        "average_loss": 34.379395106750906,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411503.2745016,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 970,
+      "model_path": "models/dqn/continuouscartpole/episode_0970.pth",
+      "metrics": {
+        "episode_id": 970,
+        "total_reward": 302.0,
+        "episode_length": 302,
+        "average_loss": 30.860185380482317,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411504.6460853,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 980,
+      "model_path": "models/dqn/continuouscartpole/episode_0980.pth",
+      "metrics": {
+        "episode_id": 980,
+        "total_reward": 134.0,
+        "episode_length": 134,
+        "average_loss": 36.173393271154545,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411507.091158,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 990,
+      "model_path": "models/dqn/continuouscartpole/episode_0990.pth",
+      "metrics": {
+        "episode_id": 990,
+        "total_reward": 14.0,
+        "episode_length": 14,
+        "average_loss": 11.760038575556662,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411511.2640972,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole"
+      }
+    },
+    {
+      "episode_id": 999,
+      "model_path": "models/dqn/continuouscartpole/episode_0999.pth",
+      "metrics": {
+        "episode_id": 999,
+        "total_reward": 219.0,
+        "episode_length": 219,
+        "average_loss": 38.4218894691636,
+        "exploration_rate": 0.01,
+        "timestamp": 1750411513.2650602,
+        "success_rate": 0.0,
+        "convergence_score": 0.0,
+        "gpu_memory_used": 0.0,
+        "gpu_memory_total": 0.0,
+        "training_time": 0.0,
+        "extra_metrics": {}
+      },
+      "model_size_mb": 0.7816019058227539,
+      "algorithm": "dqn",
+      "config_snapshot": {
+        "algorithm": "dqn",
+        "env_name": "ContinuousCartPole",
+        "final_model": true
+      }
+    }
+  ],
+  "training_history": []
+}
