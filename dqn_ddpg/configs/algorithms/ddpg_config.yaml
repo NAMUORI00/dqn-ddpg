@@ -1,21 +1,21 @@
 # DDPG Configuration
 agent:
-  actor_lr: 0.0001
-  critic_lr: 0.001
+  actor_lr: 0.00001  # 10배 낮춤 - 안정성 향상
+  critic_lr: 0.0001   # 10배 낮춤 - 안정성 향상
   gamma: 0.99
-  tau: 0.005  # Polyak averaging parameter
-  noise_sigma: 0.2
-  noise_decay: 0.995
+  tau: 0.001  # 5배 낮춤 - 더 느린 타겟 업데이트
+  noise_sigma: 0.05   # 4배 낮춤 - 적은 노이즈
+  noise_decay: 0.999  # 더 느린 감소
   buffer_size: 100000
-  batch_size: 64
+  batch_size: 128     # 2배 증가 - 안정성 향상
 
 training:
-  episodes: 300
-  max_steps_per_episode: 200
+  episodes: 3000      # 10배 증가 - 수렴을 위한 충분한 학습
+  max_steps_per_episode: 500  # CartPole 최대값
   save_freq: 50
-  eval_freq: 10
+  eval_freq: 10  
   eval_episodes: 5
-  warmup_steps: 1000  # Random actions before training
+  warmup_steps: 5000  # 5배 증가 - 더 많은 초기 탐험
 
 # GPU 최적화 설정
 gpu:

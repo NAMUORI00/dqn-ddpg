@@ -1,0 +1,86 @@
+# DDPG Tuned Configuration for CartPole Convergence
+agent:
+  # Learning rates - 낮춰서 안정성 향상
+  actor_lr: 0.00001  # 10배 감소
+  critic_lr: 0.0001   # 10배 감소
+  
+  gamma: 0.99
+  tau: 0.001  # 더 느린 target network 업데이트로 안정성 향상
+  
+  # 노이즈 설정 - CartPole에 맞게 조정
+  noise_sigma: 0.05  # 크게 감소 (0.2 -> 0.05)
+  noise_decay: 0.999  # 더 느린 감소
+  noise_theta: 0.15  # OU noise parameter
+  noise_mu: 0.0
+  
+  # 버퍼와 배치 설정
+  buffer_size: 100000
+  batch_size: 128  # 더 큰 배치로 안정성 향상
+  
+  # 추가 안정성 파라미터
+  gradient_clip: 1.0  # 그래디언트 클리핑
+  update_freq: 2  # 더 적은 업데이트 빈도
+
+training:
+  episodes: 2000  # 더 많은 에피소드로 수렴 기회 증가
+  max_steps_per_episode: 500  # CartPole 최대 스텝
+  save_freq: 50
+  eval_freq: 10
+  eval_episodes: 5
+  warmup_steps: 10000  # 더 많은 랜덤 탐험으로 초기 버퍼 채우기
+  
+  # 조기 종료 조건
+  convergence_threshold: 450.0  # CartPole 수렴 기준
+  convergence_window: 100  # 최근 100 에피소드 평균
+
+# GPU 최적화 설정
+gpu:
+  enabled: auto
+  device_id: null
+  use_gpu_buffer: true
+  use_mixed_precision: false  # DDPG는 더 높은 정밀도 필요
+  cuda_options:
+    allow_tf32: true
+    benchmark: true
+    deterministic: false
+  memory:
+    cleanup_interval: 1000
+    monitor_usage: true
+
+# 네트워크 아키텍처 설정 - 더 간단한 구조
+network:
+  # Actor 네트워크 설정
+  actor:
+    hidden_dims: [128, 128]  # 더 작은 네트워크
+    activation: "relu"
+    use_layer_norm: true  # Layer normalization 추가
+    dropout_rate: 0.0
+    init_method: "xavier_uniform"  # 초기화 방법
+    
+  # Critic 네트워크 설정
+  critic:
+    hidden_dims: [128, 128]  # 더 작은 네트워크
+    activation: "relu"
+    use_layer_norm: true  # Layer normalization 추가
+    dropout_rate: 0.0
+    init_method: "xavier_uniform"
+
+# 환경별 특수 설정
+environment_specific:
+  CartPole-v1:
+    # 액션 스케일링 (CartPole은 [-1, 1] 범위 필요)
+    action_scale: 1.0
+    action_bias: 0.0
+    # 보상 스케일링
+    reward_scale: 0.01  # 보상을 작게 만들어 학습 안정화
+    
+  ContinuousCartPole:
+    action_scale: 1.0
+    action_bias: 0.0
+    reward_scale: 0.01
+
+# 로깅 설정
+logging:
+  verbose: true
+  log_interval: 10
+  tensorboard: false
