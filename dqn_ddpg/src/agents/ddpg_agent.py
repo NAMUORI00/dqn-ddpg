@@ -128,7 +128,7 @@ class DDPGAgent(BaseReinforcementAgent):
         # 탐험을 위한 노이즈 추가
         if add_noise:
             # GPU에서 노이즈 생성 가능
-            if self.device.type == 'cuda' and isinstance(action, np.ndarray):
+            if str(self.device) == 'cuda' and isinstance(action, np.ndarray):
                 action_tensor = torch.from_numpy(action).to(self.device)
                 noise_tensor = torch.randn_like(action_tensor) * self.noise.sigma
                 action_tensor = torch.clamp(action_tensor + noise_tensor, -self.action_bound, self.action_bound)

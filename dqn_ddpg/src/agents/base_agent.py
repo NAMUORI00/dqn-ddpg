@@ -60,7 +60,7 @@ class BaseReinforcementAgent(ABC):
         
         # Device and GPU optimization setup
         self.device = device or get_device()
-        self.use_mixed_precision = use_mixed_precision and self.device.type == 'cuda'
+        self.use_mixed_precision = use_mixed_precision and str(self.device) == 'cuda'
         
         # Initialize Mixed Precision Training
         self.scaler = enable_mixed_precision() if self.use_mixed_precision else None
@@ -175,7 +175,7 @@ class BaseReinforcementAgent(ABC):
         Args:
             force: Force optimization regardless of step count
         """
-        if (force or self.training_steps % 1000 == 0) and self.device.type == 'cuda':
+        if (force or self.training_steps % 1000 == 0) and str(self.device) == 'cuda':
             optimize_gpu_memory()
     
     def store_transition(self, state: np.ndarray, action: Union[int, np.ndarray], 

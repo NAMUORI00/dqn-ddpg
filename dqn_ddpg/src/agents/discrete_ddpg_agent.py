@@ -57,6 +57,7 @@ class DiscreteCritic(nn.Module):
     
     def __init__(self, state_dim: int, num_actions: int, hidden_dims: list = [256, 256]):
         super().__init__()
+        self.num_actions = num_actions  # num_actions 저장
         
         # 상태 인코더
         state_layers = []
@@ -79,6 +80,18 @@ class DiscreteCritic(nn.Module):
     def forward(self, state: torch.Tensor, action: torch.Tensor) -> torch.Tensor:
         """상태와 행동을 받아 Q값을 반환"""
         state_features = self.state_encoder(state)
+        
+        # action이 3차원인 경우 (batch_size, 1, num_actions) -> (batch_size, num_actions)로 변환
+        if action.dim() == 3 and action.size(1) == 1:
+            action = action.squeeze(1)
+        # action이 정수 인덱스인 경우 one-hot으로 변환
+        elif action.dim() == 1 or (action.dim() == 2 and action.size(1) == 1):
+            if action.dim() == 2:
+                action = action.squeeze(1)
+            action_onehot = torch.zeros(action.size(0), self.num_actions, device=action.device)
+            action_onehot.scatter_(1, action.long().unsqueeze(1), 1.0)
+            action = action_onehot
+        
         combined = torch.cat([state_features, action], dim=1)
         return self.final_layer(combined)
 

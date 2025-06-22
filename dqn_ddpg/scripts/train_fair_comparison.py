@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """
-종합 환경별 학습 스크립트 - 모든 조합 지원
+공정한 DQN vs DDPG 비교를 위한 통일된 하이퍼파라미터 학습 스크립트
 
-지원하는 조합:
-1. CartPole-v1 + DQN (자연스러운 조합)
-2. CartPole-v1 + DDPG (DiscreteDDPG 사용)
-3. Pendulum-v1 + DQN (DiscretizedDQN 사용)  
-4. Pendulum-v1 + DDPG (자연스러운 조합)
+모든 알고리즘에 동일한 하이퍼파라미터 적용:
+- Learning Rate: 0.0001
+- Batch Size: 128  
+- Buffer Size: 100,000
+- Gamma: 0.99
+- Decay Rate: 0.9995 (epsilon/noise)
 
-각 조합에 대해 2000 에피소드 학습 후 성능 비교
-10 에피소드마다 체크포인트 저장 (총 200개)
+알고리즘별 필수 차이점만 유지:
+- DQN: Target network hard update (1000 steps)
+- DDPG: Target network soft update (tau=0.005)
 """
 
 import sys
@@ -35,62 +37,77 @@ from src.core.config_manager import ConfigManager
 from src.core.utils import get_device, set_seed
 
 
-class CrossEnvironmentTrainer:
-    """교차 환경 학습 매니저"""
+class FairComparisonTrainer:
+    """공정한 비교를 위한 통일된 하이퍼파라미터 학습 매니저"""
     
-    def __init__(self, device: str = None, episodes: int = 2000):
+    # 통일된 하이퍼파라미터
+    UNIFIED_PARAMS = {
+        'learning_rate': 0.0001,      # 모든 알고리즘 동일
+        'batch_size': 128,            # 모든 알고리즘 동일
+        'buffer_size': 100000,        # 모든 알고리즘 동일
+        'gamma': 0.99,                # 모든 알고리즘 동일
+        'decay_rate': 0.9995,         # epsilon/noise decay 동일
+        'episodes': 2000              # 학습 에피소드 동일
+    }
+    
+    def __init__(self, device: str = None):
         self.device = device or get_device()
-        self.episodes = episodes
         self.config_manager = ConfigManager()
         self.env_factory = SimpleEnvironmentFactory(self.config_manager)
         
         # 세션별 타임스탬프 생성
         self.session_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         
-        # 결과 저장 디렉토리 (타임스탬프 포함)
-        self.session_dir = Path(f"results/cross_environment/{self.session_timestamp}")
+        # 결과 저장 디렉토리 (공정 비교용)
+        self.session_dir = Path(f"results/fair_comparison/{self.session_timestamp}")
         self.session_dir.mkdir(parents=True, exist_ok=True)
         
-        print(f"🎯 교차 환경 학습 초기화")
+        print(f"🎯 공정한 DQN vs DDPG 비교 학습 초기화")
         print(f"   디바이스: {self.device}")
-        print(f"   에피소드: {self.episodes}")
+        print(f"   에피소드: {self.UNIFIED_PARAMS['episodes']}")
         print(f"   세션: {self.session_timestamp}")
         print(f"   📁 결과 디렉토리: {self.session_dir}")
+        print()
+        print("📊 통일된 하이퍼파라미터:")
+        for key, value in self.UNIFIED_PARAMS.items():
+            print(f"   {key}: {value}")
     
     def create_agent(self, algorithm: str, environment: str, env) -> Any:
-        """환경과 알고리즘에 맞는 에이전트 생성"""
+        """통일된 하이퍼파라미터로 에이전트 생성"""
         
         state_dim = env.observation_space.shape[0]
         
+        # 공통 파라미터
+        common_params = {
+            'gamma': self.UNIFIED_PARAMS['gamma'],
+            'buffer_size': self.UNIFIED_PARAMS['buffer_size'],
+            'batch_size': self.UNIFIED_PARAMS['batch_size'],
+            'device': self.device
+        }
+        
         if environment == "CartPole-v1":
-            # CartPole: 이산 행동 공간 (2개 행동)
+            # CartPole: 이산 행동 공간
             if algorithm == "DQN":
                 return DQNAgent(
                     state_dim=state_dim,
                     action_dim=env.action_space.n,
-                    learning_rate=0.001,
-                    gamma=0.99,
+                    learning_rate=self.UNIFIED_PARAMS['learning_rate'],
                     epsilon=1.0,
                     epsilon_min=0.01,
-                    epsilon_decay=0.995,
-                    buffer_size=100000,
-                    batch_size=64,
-                    target_update_freq=100,
-                    device=self.device
+                    epsilon_decay=self.UNIFIED_PARAMS['decay_rate'],
+                    target_update_freq=1000,  # 중간값으로 통일
+                    **common_params
                 )
             elif algorithm == "DDPG":
                 return DiscreteDDPGAgent(
                     state_dim=state_dim,
                     num_actions=env.action_space.n,
-                    actor_lr=0.0001,  # learning_rate -> actor_lr
-                    critic_lr=0.0001,
-                    gamma=0.99,
-                    tau=0.001,
-                    buffer_size=100000,
-                    batch_size=128,
-                    device=self.device,
+                    actor_lr=self.UNIFIED_PARAMS['learning_rate'],
+                    critic_lr=self.UNIFIED_PARAMS['learning_rate'],
+                    tau=0.005,  # soft update
                     noise_sigma=0.1,
-                    noise_decay=0.999
+                    noise_decay=self.UNIFIED_PARAMS['decay_rate'],
+                    **common_params
                 )
                 
         elif environment == "Pendulum-v1":
@@ -98,39 +115,33 @@ class CrossEnvironmentTrainer:
             if algorithm == "DQN":
                 return DiscretizedDQNAgent(
                     state_dim=state_dim,
-                    action_bound=2.0,  # Pendulum 행동 범위
-                    num_actions=21,    # 이산화 레벨
-                    learning_rate=0.001,
-                    gamma=0.99,
+                    action_bound=2.0,
+                    num_actions=21,
+                    learning_rate=self.UNIFIED_PARAMS['learning_rate'],
                     epsilon=1.0,
                     epsilon_min=0.01,
-                    epsilon_decay=0.995,
-                    buffer_size=100000,
-                    batch_size=64,
-                    target_update_freq=100,
-                    device=self.device
+                    epsilon_decay=self.UNIFIED_PARAMS['decay_rate'],
+                    target_update_freq=1000,
+                    **common_params
                 )
             elif algorithm == "DDPG":
                 return DDPGAgent(
                     state_dim=state_dim,
                     action_dim=env.action_space.shape[0],
-                    actor_lr=0.0001,  # learning_rate -> actor_lr
-                    critic_lr=0.0001,
-                    gamma=0.99,
-                    tau=0.001,
-                    buffer_size=100000,
-                    batch_size=128,
-                    device=self.device,
+                    actor_lr=self.UNIFIED_PARAMS['learning_rate'],
+                    critic_lr=self.UNIFIED_PARAMS['learning_rate'],
+                    tau=0.005,
                     noise_sigma=0.2,
-                    noise_decay=0.999
+                    noise_decay=self.UNIFIED_PARAMS['decay_rate'],
+                    **common_params
                 )
         
         raise ValueError(f"지원하지 않는 조합: {algorithm} + {environment}")
     
     def train_combination(self, algorithm: str, environment: str) -> Dict[str, Any]:
-        """특정 알고리즘-환경 조합 학습"""
+        """특정 알고리즘-환경 조합 학습 (통일된 하이퍼파라미터)"""
         
-        print(f"\n🚀 {algorithm} + {environment} 학습 시작")
+        print(f"\n🚀 {algorithm} + {environment} 학습 시작 (공정 비교)")
         
         # 조합별 디렉토리 생성
         combination_name = f"{algorithm}_{environment}"
@@ -144,25 +155,25 @@ class CrossEnvironmentTrainer:
         # 환경 생성
         env = self.env_factory.create_env(
             env_name=environment,
-            agent_type='auto',  # 자동 감지
+            agent_type='auto',
             training=True,
             seed=42
         )
         
-        # 에이전트 생성
+        # 에이전트 생성 (통일된 하이퍼파라미터)
         agent = self.create_agent(algorithm, environment, env)
         
         # 학습 메트릭
         episode_rewards = []
         episode_lengths = []
         losses = []
-        checkpoint_episodes = []  # 체크포인트 저장된 에피소드 추적
+        checkpoint_episodes = []
         
         # 학습 시작
         start_time = time.time()
         best_avg_reward = -float('inf')
         
-        for episode in range(self.episodes):
+        for episode in range(self.UNIFIED_PARAMS['episodes']):
             state, _ = env.reset()
             episode_reward = 0
             episode_length = 0
@@ -171,7 +182,7 @@ class CrossEnvironmentTrainer:
             max_steps = 500 if environment == "CartPole-v1" else 200
             
             for step in range(max_steps):
-                # 행동 선택 (인터페이스 통일)
+                # 행동 선택
                 if hasattr(agent, 'select_action'):
                     action = agent.select_action(state)
                 else:
@@ -181,12 +192,10 @@ class CrossEnvironmentTrainer:
                 next_state, reward, terminated, truncated, _ = env.step(action)
                 done = terminated or truncated
                 
-                # 경험 저장 (DiscretizedDQN은 특별한 처리 필요)
+                # 경험 저장
                 if hasattr(agent, 'store_transition'):
-                    # DiscretizedDQN의 경우 store_transition 사용 (자동으로 연속->이산 변환)
                     agent.store_transition(state, action, reward, next_state, done)
                 else:
-                    # 다른 에이전트는 직접 버퍼에 저장
                     agent.buffer.push(state, action, reward, next_state, done)
                 
                 # 학습
@@ -207,13 +216,13 @@ class CrossEnvironmentTrainer:
             if episode_losses:
                 losses.append(np.mean([loss.get('loss', 0) for loss in episode_losses]))
             
-            # 10 에피소드마다 체크포인트 저장 (에피소드 0 포함)
+            # 10 에피소드마다 체크포인트 저장
             if episode % 10 == 0:
                 model_path = checkpoints_dir / f"episode_{episode:04d}.pth"
                 agent.save(str(model_path))
                 checkpoint_episodes.append(episode)
                 
-                # 간단한 메타데이터 저장
+                # 메타데이터 저장
                 metadata = {
                     'episode': episode,
                     'reward': episode_reward,
@@ -229,20 +238,26 @@ class CrossEnvironmentTrainer:
                 avg_reward = np.mean(episode_rewards[-100:]) if len(episode_rewards) >= 100 else np.mean(episode_rewards)
                 avg_length = np.mean(episode_lengths[-100:]) if len(episode_lengths) >= 100 else np.mean(episode_lengths)
                 elapsed = time.time() - start_time
-                progress = (episode + 1) / self.episodes * 100
+                progress = (episode + 1) / self.UNIFIED_PARAMS['episodes'] * 100
+                
+                # 현재 탐험률/노이즈 확인
+                if hasattr(agent, 'epsilon'):
+                    explore_param = f"ε: {agent.epsilon:.4f}"
+                elif hasattr(agent, 'noise'):
+                    explore_param = f"σ: {agent.noise.sigma:.4f}"
+                else:
+                    explore_param = "N/A"
                 
                 print(f"📊 Episode {episode:4d} ({progress:5.1f}%) | "
                       f"Reward: {episode_reward:7.1f} | "
                       f"Avg(100): {avg_reward:7.1f} | "
                       f"Length: {episode_length:3d} | "
-                      f"AvgLen: {avg_length:5.1f} | "
+                      f"{explore_param} | "
                       f"Time: {elapsed/60:.1f}m")
                 
                 # 최고 성능 체크
                 if avg_reward > best_avg_reward:
                     best_avg_reward = avg_reward
-                    
-                    # 최고 모델 저장
                     best_model_path = combination_dir / "best_model.pth"
                     agent.save(str(best_model_path))
         
@@ -250,31 +265,32 @@ class CrossEnvironmentTrainer:
         total_time = time.time() - start_time
         final_avg_reward = np.mean(episode_rewards[-100:]) if len(episode_rewards) >= 100 else np.mean(episode_rewards)
         
-        print(f"\n✅ {algorithm} + {environment} 학습 완료")
+        print(f"\n✅ {algorithm} + {environment} 학습 완료 (공정 비교)")
         print(f"📊 최종 평균 보상: {final_avg_reward:.1f}")
         print(f"📊 최고 평균 보상: {best_avg_reward:.1f}")
         print(f"⏰ 총 시간: {total_time/60:.1f}분")
         print(f"💾 체크포인트 개수: {len(checkpoint_episodes)}개")
         
-        # 수렴 판정 (bool 타입으로 명시적 변환)
+        # 수렴 판정
         converged = False
         if environment == "CartPole-v1":
-            converged = bool(final_avg_reward >= 475.0)  # CartPole 수렴 기준
+            converged = final_avg_reward >= 475.0
         elif environment == "Pendulum-v1":
-            converged = bool(final_avg_reward >= -200.0)  # Pendulum 수렴 기준 (높을수록 좋음)
+            converged = final_avg_reward >= -200.0
         
         env.close()
         
         result = {
             'algorithm': algorithm,
             'environment': environment,
-            'total_episodes': self.episodes,
+            'total_episodes': self.UNIFIED_PARAMS['episodes'],
             'final_avg_reward': float(final_avg_reward),
             'best_avg_reward': float(best_avg_reward),
             'max_reward': float(max(episode_rewards)),
             'min_reward': float(min(episode_rewards)),
             'training_time': float(total_time),
-            'converged': converged,
+            'converged': bool(converged),
+            'hyperparameters': self.UNIFIED_PARAMS,
             'episode_rewards': [float(r) for r in episode_rewards],
             'episode_lengths': [int(l) for l in episode_lengths],
             'losses': [float(l) for l in losses] if losses else [],
@@ -294,13 +310,13 @@ class CrossEnvironmentTrainer:
         return result
     
     def run_all_combinations(self) -> Dict[str, Any]:
-        """모든 알고리즘-환경 조합 실행"""
+        """모든 알고리즘-환경 조합 실행 (공정 비교)"""
         
         combinations = [
-            ("DQN", "CartPole-v1"),     # 자연스러운 조합
-            ("DDPG", "CartPole-v1"),    # 적응된 조합
-            ("DQN", "Pendulum-v1"),     # 적응된 조합  
-            ("DDPG", "Pendulum-v1")     # 자연스러운 조합
+            ("DQN", "CartPole-v1"),
+            ("DDPG", "CartPole-v1"),
+            ("DQN", "Pendulum-v1"),
+            ("DDPG", "Pendulum-v1")
         ]
         
         all_results = {}
@@ -309,14 +325,14 @@ class CrossEnvironmentTrainer:
             'session_dir': str(self.session_dir),
             'timestamp': datetime.now().isoformat(),
             'total_combinations': len(combinations),
-            'episodes_per_combination': self.episodes,
-            'checkpoints_per_combination': self.episodes // 10 + 1,  # 0, 10, 20, ... 에피소드
+            'episodes_per_combination': self.UNIFIED_PARAMS['episodes'],
+            'unified_hyperparameters': self.UNIFIED_PARAMS,
             'device': str(self.device),
             'results': {}
         }
         
-        print(f"🎯 {len(combinations)}개 조합 학습 시작 (총 {len(combinations) * self.episodes} 에피소드)")
-        print(f"📊 체크포인트: 10 에피소드마다 (조합당 {summary['checkpoints_per_combination']}개)")
+        print(f"🎯 공정 비교: {len(combinations)}개 조합 학습 시작")
+        print(f"📊 통일된 하이퍼파라미터 적용")
         print()
         
         total_start_time = time.time()
@@ -337,44 +353,46 @@ class CrossEnvironmentTrainer:
                 'best_avg_reward': result['best_avg_reward'],
                 'converged': result['converged'],
                 'training_time': result['training_time'],
-                'num_checkpoints': result['num_checkpoints'],
-                'combination_dir': result['combination_dir'],
-                'checkpoints_dir': result['checkpoints_dir']
+                'num_checkpoints': result['num_checkpoints']
             }
         
         # 종합 결과 저장
         total_time = time.time() - total_start_time
         summary['total_training_time'] = total_time
         
-        summary_file = self.session_dir / "summary.json"
+        summary_file = self.session_dir / "fair_comparison_summary.json"
         with open(summary_file, 'w') as f:
             json.dump(summary, f, indent=2)
         
-        # 비교 분석 출력
-        self.print_comparison_analysis(summary)
+        # 공정 비교 분석 출력
+        self.print_fair_comparison_analysis(summary)
         
         return summary
     
-    def print_comparison_analysis(self, summary: Dict[str, Any]):
-        """비교 분석 결과 출력"""
+    def print_fair_comparison_analysis(self, summary: Dict[str, Any]):
+        """공정 비교 분석 결과 출력"""
         
         print(f"\n\n{'='*80}")
-        print("🎉 교차 환경 학습 완료 - 비교 분석")
+        print("🎉 공정한 DQN vs DDPG 비교 완료")
         print(f"{'='*80}\n")
         
         results = summary['results']
         
-        print("📊 환경별 성능 비교\n")
+        print("📊 통일된 하이퍼파라미터:")
+        for key, value in self.UNIFIED_PARAMS.items():
+            print(f"   {key}: {value}")
+        
+        print("\n📊 환경별 성능 비교 (동일 조건)\n")
         
         # CartPole 비교
         print("🎮 CartPole-v1 환경:")
         dqn_cartpole = results.get('DQN_CartPole-v1', {})
         ddpg_cartpole = results.get('DDPG_CartPole-v1', {})
         
-        print(f"   DQN (자연):  {dqn_cartpole.get('final_avg_reward', 0):7.1f} | "
+        print(f"   DQN:  {dqn_cartpole.get('final_avg_reward', 0):7.1f} | "
               f"수렴: {dqn_cartpole.get('converged', False)} | "
               f"시간: {dqn_cartpole.get('training_time', 0)/60:.1f}분")
-        print(f"   DDPG (적응): {ddpg_cartpole.get('final_avg_reward', 0):7.1f} | "
+        print(f"   DDPG: {ddpg_cartpole.get('final_avg_reward', 0):7.1f} | "
               f"수렴: {ddpg_cartpole.get('converged', False)} | "
               f"시간: {ddpg_cartpole.get('training_time', 0)/60:.1f}분")
         
@@ -383,46 +401,28 @@ class CrossEnvironmentTrainer:
         dqn_pendulum = results.get('DQN_Pendulum-v1', {})
         ddpg_pendulum = results.get('DDPG_Pendulum-v1', {})
         
-        print(f"   DQN (적응):  {dqn_pendulum.get('final_avg_reward', 0):7.1f} | "
+        print(f"   DQN:  {dqn_pendulum.get('final_avg_reward', 0):7.1f} | "
               f"수렴: {dqn_pendulum.get('converged', False)} | "
               f"시간: {dqn_pendulum.get('training_time', 0)/60:.1f}분")
-        print(f"   DDPG (자연): {ddpg_pendulum.get('final_avg_reward', 0):7.1f} | "
+        print(f"   DDPG: {ddpg_pendulum.get('final_avg_reward', 0):7.1f} | "
               f"수렴: {ddpg_pendulum.get('converged', False)} | "
               f"시간: {ddpg_pendulum.get('training_time', 0)/60:.1f}분")
         
         print(f"\n⏰ 총 학습 시간: {summary['total_training_time']/60:.1f}분")
         print(f"📁 세션 디렉토리: {summary['session_dir']}")
-        print(f"💾 결과 요약: {summary['session_dir']}/summary.json")
-        print(f"📊 체크포인트: 각 조합당 {summary['checkpoints_per_combination']}개")
         
         # 주요 인사이트
-        print("\n🔍 주요 인사이트:")
-        
-        # CartPole에서 어느 것이 더 좋은가?
-        if dqn_cartpole and ddpg_cartpole:
-            dqn_score = dqn_cartpole.get('final_avg_reward', 0)
-            ddpg_score = ddpg_cartpole.get('final_avg_reward', 0)
-            if dqn_score > ddpg_score:
-                print(f"   • CartPole에서 DQN이 DDPG보다 {dqn_score - ddpg_score:.1f}점 더 좋음")
-            else:
-                print(f"   • CartPole에서 DDPG가 DQN보다 {ddpg_score - dqn_score:.1f}점 더 좋음")
-        
-        # Pendulum에서 어느 것이 더 좋은가?
-        if dqn_pendulum and ddpg_pendulum:
-            dqn_score = dqn_pendulum.get('final_avg_reward', 0)
-            ddpg_score = ddpg_pendulum.get('final_avg_reward', 0)
-            if ddpg_score > dqn_score:
-                print(f"   • Pendulum에서 DDPG가 DQN보다 {ddpg_score - dqn_score:.1f}점 더 좋음")
-            else:
-                print(f"   • Pendulum에서 DQN이 DDPG보다 {dqn_score - ddpg_score:.1f}점 더 좋음")
+        print("\n🔍 공정 비교 인사이트:")
+        print("   • 모든 알고리즘이 동일한 하이퍼파라미터로 학습됨")
+        print("   • 성능 차이는 알고리즘 자체의 특성을 반영")
+        print("   • 환경별 적합성을 정확히 평가 가능")
         
         print(f"\n{'='*80}\n")
 
 
 def main():
-    parser = argparse.ArgumentParser(description='교차 환경 학습 스크립트')
-    parser.add_argument('--episodes', type=int, default=2000, help='에피소드 수 (기본: 2000)')
-    parser.add_argument('--device', type=str, default=None, help='디바이스 (cuda/cpu, 기본: 자동)')
+    parser = argparse.ArgumentParser(description='공정한 DQN vs DDPG 비교 학습')
+    parser.add_argument('--device', type=str, default=None, help='디바이스 (cuda/cpu)')
     parser.add_argument('--algorithm', type=str, default=None, 
                        choices=['DQN', 'DDPG'], help='특정 알고리즘만 실행')
     parser.add_argument('--environment', type=str, default=None,
@@ -434,23 +434,22 @@ def main():
     set_seed(42)
     
     # 트레이너 초기화
-    trainer = CrossEnvironmentTrainer(device=args.device, episodes=args.episodes)
+    trainer = FairComparisonTrainer(device=args.device)
     
     if args.algorithm and args.environment:
         # 특정 조합만 실행
-        print(f"🎯 단일 조합 실행: {args.algorithm} + {args.environment}")
+        print(f"🎯 단일 조합 공정 비교: {args.algorithm} + {args.environment}")
         result = trainer.train_combination(args.algorithm, args.environment)
         
         # 결과 출력
-        print(f"\n✅ 결과:")
+        print(f"\n✅ 공정 비교 결과:")
         print(f"   최종 평균 보상: {result['final_avg_reward']:.1f}")
         print(f"   수렴 여부: {result['converged']}")
         print(f"   학습 시간: {result['training_time']/60:.1f}분")
-        print(f"   체크포인트: {result['num_checkpoints']}개")
         
     else:
         # 모든 조합 실행
-        print("🎯 모든 조합 실행")
+        print("🎯 모든 조합 공정 비교 실행")
         summary = trainer.run_all_combinations()
 
 
